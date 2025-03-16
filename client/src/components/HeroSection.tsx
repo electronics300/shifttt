@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
 
 export function HeroSection() {
   const scrollToSection = (id: string) => {
@@ -20,45 +19,70 @@ export function HeroSection() {
   };
 
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative h-screen flex flex-col items-center justify-between overflow-hidden pt-16 pb-8">
+      {/* Background image */}
       <div className="absolute inset-0 z-0">
         <img
           src="https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&q=80"
           alt="High-performance motorcycle in motion"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
       </div>
 
-      <motion.div
+      {/* Center content */}
+      <div className="flex-1 flex flex-col items-center justify-center z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-center"
+        >
+          <h1 className="text-5xl md:text-7xl font-medium mb-1 text-white">
+            QuickShift Pro
+          </h1>
+          <p className="text-xl text-white/90 font-light">
+            0% APR Financing Ending March 31
+          </p>
+        </motion.div>
+      </div>
+
+      {/* Bottom specs section */}
+      <motion.div 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="container mx-auto px-4 z-10 text-center"
+        transition={{ duration: 0.8, delay: 0.3 }}
+        className="z-10 w-full md:max-w-4xl mx-auto"
       >
-        <h1 className="text-4xl md:text-7xl font-extrabold mb-6 tracking-tighter">
-          Shift <span className="text-white font-bold">Faster.</span>
-          <br />
-          Race <span className="text-white font-bold">Better.</span>
-        </h1>
-        <p className="text-xl md:text-2xl mb-10 max-w-3xl mx-auto text-gray-300">
-          The ultimate quickshifter module engineered for precision performance and seamless gear changes.
-        </p>
-        <div className="flex flex-col sm:flex-row justify-center gap-4">
+        <div className="grid grid-cols-3 gap-4 text-center">
+          <div className="p-4">
+            <p className="text-xl md:text-2xl font-medium text-white">15 ms</p>
+            <p className="text-sm text-white/70 font-light">Response Time</p>
+          </div>
+          <div className="p-4">
+            <p className="text-xl md:text-2xl font-medium text-white">360°</p>
+            <p className="text-sm text-white/70 font-light">Detection Angle</p>
+          </div>
+          <div className="p-4">
+            <p className="text-xl md:text-2xl font-medium text-white">AWD</p>
+            <p className="text-sm text-white/70 font-light">Compatibility</p>
+          </div>
+        </div>
+
+        <div className="flex flex-col sm:flex-row gap-4 mt-6 justify-center">
           <Button
             size="lg"
-            className="bg-black text-white hover:bg-black/90 transition-all transform hover:scale-105 border border-white/20 shadow-lg"
+            className="bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md w-full sm:w-auto py-6"
             onClick={() => scrollToSection("waitlist")}
           >
-            Join the Waitlist
+            Order Now
           </Button>
           <Button
             variant="outline"
             size="lg"
-            className="border-white text-white hover:bg-white/10"
+            className="border-white text-white hover:bg-white/10 rounded-md w-full sm:w-auto py-6"
             onClick={() => scrollToSection("specs")}
           >
-            Explore Specs <ArrowRight className="ml-2 h-4 w-4" />
+            Experience QuickShift Pro
           </Button>
         </div>
       </motion.div>

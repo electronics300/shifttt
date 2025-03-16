@@ -1,81 +1,82 @@
 import { motion } from "framer-motion";
-import { Zap, Sliders, Settings, Shield } from "lucide-react";
+import { ChevronDown } from "lucide-react"; 
 
 export function FeaturesSection() {
-  const features = [
-    {
-      icon: <Zap className="h-5 w-5" />,
-      title: "Lightning-Fast Response",
-      description: "Ultra-responsive 5ms activation time ensures instantaneous gear shifts with no perceptible delay."
-    },
-    {
-      icon: <Sliders className="h-5 w-5" />,
-      title: "Intelligent Adaptation",
-      description: "AI-powered self-learning system adjusts to your riding style and bike characteristics for optimized performance."
-    },
-    {
-      icon: <Settings className="h-5 w-5" />,
-      title: "Universal Compatibility",
-      description: "Works with virtually all modern sportbikes thanks to our patented adaptive sensing technology."
-    },
-    {
-      icon: <Shield className="h-5 w-5" />,
-      title: "Race-Proven Reliability",
-      description: "Developed and tested with professional riders on top-tier racing circuits worldwide."
-    }
-  ];
-
   return (
-    <section id="features" className="py-24 bg-zinc-900">
-      <div className="container mx-auto px-4">
-        <motion.div 
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">Engineered for Excellence</h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            QUICKSHIFT PRO redefines motorcycle performance with cutting-edge technology and precision engineering.
-          </p>
-        </motion.div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+    <section id="features" className="relative h-screen bg-black overflow-hidden flex flex-col">
+      {/* Full screen background image */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src="https://images.unsplash.com/photo-1558383817-abb21a24278a?auto=format&q=80" 
+          alt="Motorcycle interior digital dashboard"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black/50"></div>
+      </div>
+      
+      {/* Main content */}
+      <div className="container mx-auto flex-1 flex flex-col justify-center px-4 z-10">
+        <div className="max-w-3xl mx-auto text-center">
+          <motion.h2 
+            className="text-4xl md:text-5xl font-medium mb-6 text-white"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <img 
-              src="https://images.unsplash.com/photo-1558981852-426c6c22a060?auto=format&q=80" 
-              alt="Motorcycle engine close-up" 
-              className="rounded-lg shadow-2xl"
-            />
-          </motion.div>
+            Interior
+          </motion.h2>
           
-          <div className="space-y-8">
-            {features.map((feature, index) => (
-              <motion.div 
-                key={index}
-                className="flex items-start gap-4"
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-              >
-                <div className="bg-white rounded-full p-2 mt-1 text-black">
-                  {feature.icon}
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-                  <p className="text-gray-400">{feature.description}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+          <motion.p 
+            className="text-lg text-white mb-8"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+          >
+            The QuickShift Pro maximizes control without distractions, featuring an unassuming design that integrates perfectly with any motorcycle electronics system.
+          </motion.p>
+          
+          <motion.div 
+            className="mt-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="p-4">
+                <p className="text-lg md:text-xl font-medium text-white">15-inch</p>
+                <p className="text-sm text-white/70">Touchscreen Display</p>
+              </div>
+              <div className="p-4">
+                <p className="text-lg md:text-xl font-medium text-white">Custom</p>
+                <p className="text-sm text-white/70">Rider Profiles</p>
+              </div>
+              <div className="p-4">
+                <p className="text-lg md:text-xl font-medium text-white">OTA</p>
+                <p className="text-sm text-white/70">Software Updates</p>
+              </div>
+            </div>
+          </motion.div>
         </div>
+      </div>
+      
+      {/* Scroll down indicator */}
+      <div className="absolute bottom-8 left-0 right-0 flex justify-center z-10">
+        <motion.div 
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ 
+            duration: 0.6, 
+            delay: 1,
+            repeatType: "reverse",
+            repeat: Infinity,
+          }}
+          className="text-white flex flex-col items-center"
+        >
+          <ChevronDown className="h-6 w-6" />
+        </motion.div>
       </div>
     </section>
   );
