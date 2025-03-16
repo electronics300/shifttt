@@ -24,7 +24,7 @@ export function FeaturesSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            Interior
+            Safety & Performance
           </motion.h2>
           
           <motion.p 

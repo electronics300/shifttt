@@ -1,3 +1,4 @@
+
 import { Header } from "@/components/Header";
 import { HeroSection } from "@/components/HeroSection";
 import { FeaturesSection } from "@/components/FeaturesSection";
@@ -14,11 +15,11 @@ export default function Home() {
     <div className="min-h-screen bg-black text-white">
       <Header />
       <HeroSection />
-      <FeaturesSection />
       <ProductDisplay />
+      <FeaturesSection />
       <SpecificationsSection />
-      <VideoSection />
       <InstallationSection />
+      <VideoSection />
       <FaqSection />
       <WaitlistSection />
       <Footer />
