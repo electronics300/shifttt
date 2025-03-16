@@ -51,10 +51,34 @@ export function HeroSection() {
           </motion.p>
 
           <motion.div 
-            className="flex flex-wrap gap-4"
+            className="grid grid-cols-3 gap-8 mb-12"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <div>
+              <p className="text-2xl md:text-3xl font-medium text-white">
+                15 ms
+              </p>
+              <p className="text-sm text-white/70">Response Time</p>
+            </div>
+            <div>
+              <p className="text-2xl md:text-3xl font-medium text-white">
+                360°
+              </p>
+              <p className="text-sm text-white/70">Detection Angle</p>
+            </div>
+            <div>
+              <p className="text-2xl md:text-3xl font-medium text-white">AWD</p>
+              <p className="text-sm text-white/70">Compatibility</p>
+            </div>
+          </motion.div>
+
+          <motion.div 
+            className="flex flex-wrap gap-4"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
           >
             <Button
               size="lg"
