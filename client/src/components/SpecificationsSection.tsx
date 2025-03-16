@@ -44,7 +44,7 @@ export function SpecificationsSection() {
   ];
 
   return (
-    <section id="specs" className="py-24 bg-zinc-900">
+    <section id="specs" className="py-24 bg-black">
       <div className="container mx-auto px-4">
         <motion.div 
           className="text-center mb-16"

@@ -20,8 +20,8 @@ export function ProductDisplay() {
   ];
 
   return (
-    <section className="py-24 bg-black relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-1/3 h-full bg-primary opacity-10 rounded-l-full"></div>
+    <section className="py-24 bg-white relative overflow-hidden">
+      <div className="absolute top-0 right-0 w-1/3 h-full bg-black opacity-5 rounded-l-full"></div>
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="flex flex-col md:flex-row items-center">
@@ -32,22 +32,22 @@ export function ProductDisplay() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl md:text-5xl font-bold mb-6">
+            <h2 className="text-3xl md:text-5xl font-bold mb-6 text-black">
               QUICKSHIFT<span className="font-bold">PRO</span>
             </h2>
-            <p className="text-xl text-gray-300 mb-8">
+            <p className="text-xl text-gray-600 mb-8">
               Precision engineered for performance. The ultimate quickshifter for racers who demand excellence.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
               {specs.map((spec, index) => (
-                <div key={index} className="px-6 py-4 bg-zinc-900/70 backdrop-blur-sm border border-white/10 rounded-lg">
-                  <p className="text-sm text-gray-400">{spec.label}</p>
-                  <p className="text-2xl font-bold">{spec.value}</p>
+                <div key={index} className="px-6 py-4 bg-black/80 backdrop-blur-sm border border-black/20 rounded-lg shadow-lg">
+                  <p className="text-sm text-gray-200">{spec.label}</p>
+                  <p className="text-2xl font-bold text-white">{spec.value}</p>
                 </div>
               ))}
             </div>
             <Button 
-              className="bg-white text-black hover:bg-white/90"
+              className="bg-black text-white hover:bg-black/90 shadow-lg"
               onClick={scrollToWaitlist}
             >
               Join the Waitlist
