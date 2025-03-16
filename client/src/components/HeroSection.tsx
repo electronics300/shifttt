@@ -83,10 +83,10 @@ export function HeroSection() {
           </div>
         </div>
 
-        <div className="flex flex-col sm:flex-row gap-4 mt-6 justify-center">
+        <div className="flex flex-col gap-4 mt-6">
           <Button
             size="lg"
-            className="bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md w-full sm:w-auto py-6"
+            className="bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md w-full md:w-64 py-6"
             onClick={() => scrollToSection("waitlist")}
           >
             Order Now
@@ -94,7 +94,7 @@ export function HeroSection() {
           <Button
             variant="outline"
             size="lg"
-            className="border-white text-white hover:bg-white/10 rounded-md w-full sm:w-auto py-6"
+            className="border-white text-white hover:bg-white/10 rounded-md w-full md:w-64 py-6"
             onClick={() => scrollToSection("specs")}
           >
             Experience QuickShift Pro
