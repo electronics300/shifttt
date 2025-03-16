@@ -18,24 +18,47 @@ export function ProductDisplay() {
     <section className="min-h-screen bg-white relative overflow-hidden py-20">
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          {/* Left side - Image */}
+          {/* Left side - Content */}
           <motion.div 
-            className="order-2 md:order-1"
+            className="order-1"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <img 
-              src="https://images.unsplash.com/photo-1588438378022-9a516a194d57?auto=format&q=80" 
-              alt="QUICKSHIFT PRO Module" 
-              className="w-full h-auto rounded-lg"
-            />
+            <h2 className="text-3xl font-medium text-black mb-4">Safety First</h2>
+            <p className="text-lg text-black/80 mb-6">
+              Experience unparalleled safety with QuickShift Pro. Our advanced system features real-time monitoring and precision sensors that ensure optimal performance while maintaining the highest safety standards.
+            </p>
+            
+            <div className="bg-gray-100 p-6 rounded-lg mb-6">
+              <h3 className="text-xl font-medium text-black mb-4">Key Features</h3>
+              <ul className="space-y-3">
+                <li className="flex items-center text-black/80">
+                  • Real-time shift pattern detection
+                </li>
+                <li className="flex items-center text-black/80">
+                  • Advanced safety monitoring
+                </li>
+                <li className="flex items-center text-black/80">
+                  • Precision gear optimization
+                </li>
+              </ul>
+            </div>
+            
+            <Button
+              variant="default"
+              size="lg"
+              className="w-full md:w-auto"
+              onClick={scrollToWaitlist}
+            >
+              Order Now <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
           </motion.div>
           
-          {/* Right side - Content */}
+          {/* Right side - Image */}
           <motion.div 
-            className="order-1 md:order-2"
+            className="order-2"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
