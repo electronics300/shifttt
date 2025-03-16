@@ -46,7 +46,7 @@ export function InstallationSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
             >
-              <div className="w-20 h-20 bg-primary rounded-full flex items-center justify-center mx-auto mb-6">
+              <div className="w-20 h-20 bg-white text-black rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="text-3xl font-bold">{step.number}</span>
               </div>
               <h3 className="text-xl font-semibold mb-3">{step.title}</h3>
@@ -64,7 +64,7 @@ export function InstallationSection() {
         >
           <div className="bg-black p-8 rounded-lg max-w-3xl mx-auto">
             <div className="flex items-start">
-              <div className="bg-primary p-2 rounded-full mr-4 mt-1">
+              <div className="bg-white text-black p-2 rounded-full mr-4 mt-1">
                 <Info className="h-5 w-5" />
               </div>
               <div>

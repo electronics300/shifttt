@@ -36,7 +36,7 @@ export function Footer() {
                 scrollToTop();
               }}
             >
-              QUICKSHIFT<span className="text-primary">PRO</span>
+              QUICKSHIFT<span className="font-bold">PRO</span>
             </a>
             <p className="text-gray-500 mt-2">Premium motorcycle quickshifter technology.</p>
           </div>
@@ -46,7 +46,7 @@ export function Footer() {
               <a 
                 key={index}
                 href={link.href} 
-                className="text-gray-400 hover:text-primary transition-colors"
+                className="text-gray-400 hover:text-white transition-colors"
                 aria-label={link.label}
               >
                 {link.icon}
@@ -62,7 +62,7 @@ export function Footer() {
                 <a 
                   key={index}
                   href={link.href} 
-                  className="text-sm text-gray-400 hover:text-primary transition-colors"
+                  className="text-sm text-gray-400 hover:text-white transition-colors"
                 >
                   {link.label}
                 </a>

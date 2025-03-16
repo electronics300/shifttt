@@ -114,9 +114,9 @@ export function SpecificationsSection() {
                 <div key={index} className="flex justify-between items-center pb-3 border-b border-gray-800">
                   <span>{item.label}</span>
                   <span className={`font-semibold ${
-                    item.status === "success" ? "text-green-400" : 
-                    item.status === "warning" ? "text-yellow-400" : 
-                    "text-red-400"
+                    item.status === "success" ? "text-white" : 
+                    item.status === "warning" ? "text-gray-400" : 
+                    "text-gray-500"
                   }`}>{item.value}</span>
                 </div>
               ))}

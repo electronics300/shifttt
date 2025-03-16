@@ -120,8 +120,8 @@ export function WaitlistSection() {
           >
             {isSubmitted ? (
               <div className="text-center py-8">
-                <div className="mx-auto rounded-full bg-primary/20 w-20 h-20 flex items-center justify-center mb-4">
-                  <Check className="h-10 w-10 text-primary" />
+                <div className="mx-auto rounded-full bg-white/20 w-20 h-20 flex items-center justify-center mb-4">
+                  <Check className="h-10 w-10 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold mb-2">Thank You!</h3>
                 <p className="text-gray-400">
@@ -222,7 +222,7 @@ export function WaitlistSection() {
                           <Checkbox
                             checked={field.value}
                             onCheckedChange={field.onChange}
-                            className="data-[state=checked]:bg-primary"
+                            className="data-[state=checked]:bg-white data-[state=checked]:text-black"
                           />
                         </FormControl>
                         <div className="space-y-1 leading-none">
@@ -237,7 +237,7 @@ export function WaitlistSection() {
 
                   <Button
                     type="submit"
-                    className="w-full bg-primary text-white hover:bg-primary/90"
+                    className="w-full bg-white text-black hover:bg-white/90"
                     disabled={waitlistMutation.isPending}
                   >
                     {waitlistMutation.isPending ? "Submitting..." : "Join the Waitlist"}

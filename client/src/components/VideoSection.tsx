@@ -37,7 +37,7 @@ export function VideoSection() {
                 className="absolute transform transition-transform duration-300"
                 whileHover={{ scale: 1.1 }}
               >
-                <div className="w-20 h-20 bg-primary rounded-full flex items-center justify-center">
+                <div className="w-20 h-20 bg-white text-black rounded-full flex items-center justify-center">
                   <Play className="h-10 w-10 fill-current" />
                 </div>
                 <span className="sr-only">Play Video</span>
