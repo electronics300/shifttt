@@ -27,7 +27,7 @@ export function HeroSection() {
           alt="High-performance motorcycle in motion"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/40"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/40 backdrop-blur-sm"></div>
       </div>
 
       <motion.div

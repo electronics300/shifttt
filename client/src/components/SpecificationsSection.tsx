@@ -63,7 +63,7 @@ export function SpecificationsSection() {
           {mainSpecs.map((spec, index) => (
             <motion.div 
               key={index} 
-              className="bg-black p-6 rounded-lg cursor-pointer"
+              className="bg-black/70 backdrop-blur-sm border border-white/10 p-6 rounded-lg cursor-pointer"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -84,7 +84,7 @@ export function SpecificationsSection() {
         
         <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
           <motion.div 
-            className="bg-black p-8 rounded-lg"
+            className="bg-black/60 backdrop-blur-md border border-white/10 p-8 rounded-lg"
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -102,7 +102,7 @@ export function SpecificationsSection() {
           </motion.div>
           
           <motion.div 
-            className="bg-black p-8 rounded-lg"
+            className="bg-black/60 backdrop-blur-md border border-white/10 p-8 rounded-lg"
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}

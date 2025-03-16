@@ -40,7 +40,7 @@ export function ProductDisplay() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
               {specs.map((spec, index) => (
-                <div key={index} className="px-6 py-4 bg-zinc-900 rounded-lg">
+                <div key={index} className="px-6 py-4 bg-zinc-900/70 backdrop-blur-sm border border-white/10 rounded-lg">
                   <p className="text-sm text-gray-400">{spec.label}</p>
                   <p className="text-2xl font-bold">{spec.value}</p>
                 </div>
