@@ -89,7 +89,7 @@ export function WaitlistSection() {
   ];
 
   return (
-    <section id="waitlist" className="py-24 bg-zinc-900 relative overflow-hidden">
+    <section id="waitlist" className="py-24 bg-black relative overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-full">
         <img
           src="https://images.unsplash.com/photo-1594032194509-0056023973b2?auto=format&q=80"
@@ -112,7 +112,7 @@ export function WaitlistSection() {
           </p>
 
           <motion.div
-            className="bg-black/60 backdrop-blur-md p-8 rounded-lg shadow-2xl border border-white/10"
+            className="bg-white/80 backdrop-blur-md p-8 rounded-lg shadow-2xl border border-black/20"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -137,11 +137,11 @@ export function WaitlistSection() {
                       name="firstName"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="text-sm font-medium text-gray-400">First Name</FormLabel>
+                          <FormLabel className="text-sm font-medium text-black">First Name</FormLabel>
                           <FormControl>
                             <Input
                               placeholder="Your first name"
-                              className="bg-zinc-900/80 backdrop-blur-sm border-gray-700/50 text-white focus:border-white/50"
+                              className="bg-black/70 backdrop-blur-sm border-black/20 text-white focus:border-white/50"
                               {...field}
                             />
                           </FormControl>
@@ -155,11 +155,11 @@ export function WaitlistSection() {
                       name="lastName"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="text-sm font-medium text-gray-400">Last Name</FormLabel>
+                          <FormLabel className="text-sm font-medium text-black">Last Name</FormLabel>
                           <FormControl>
                             <Input
                               placeholder="Your last name"
-                              className="bg-zinc-900/80 backdrop-blur-sm border-gray-700/50 text-white focus:border-white/50"
+                              className="bg-black/70 backdrop-blur-sm border-black/20 text-white focus:border-white/50"
                               {...field}
                             />
                           </FormControl>
@@ -174,12 +174,12 @@ export function WaitlistSection() {
                     name="email"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-sm font-medium text-gray-400">Email Address</FormLabel>
+                        <FormLabel className="text-sm font-medium text-black">Email Address</FormLabel>
                         <FormControl>
                           <Input
                             type="email"
                             placeholder="your@email.com"
-                            className="bg-zinc-900/80 backdrop-blur-sm border-gray-700/50 text-white focus:border-white/50"
+                            className="bg-black/70 backdrop-blur-sm border-black/20 text-white focus:border-white/50"
                             {...field}
                           />
                         </FormControl>
@@ -193,14 +193,14 @@ export function WaitlistSection() {
                     name="motorcycle"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-sm font-medium text-gray-400">Motorcycle Model</FormLabel>
+                        <FormLabel className="text-sm font-medium text-black">Motorcycle Model</FormLabel>
                         <Select onValueChange={field.onChange} defaultValue={field.value}>
                           <FormControl>
-                            <SelectTrigger className="bg-zinc-900/80 backdrop-blur-sm border-gray-700/50 text-white focus:border-white/50">
+                            <SelectTrigger className="bg-black/70 backdrop-blur-sm border-black/20 text-white focus:border-white/50">
                               <SelectValue placeholder="Select your motorcycle" />
                             </SelectTrigger>
                           </FormControl>
-                          <SelectContent className="bg-zinc-900/90 backdrop-blur-md border-gray-700/50 text-white">
+                          <SelectContent className="bg-black/90 backdrop-blur-md border-black/20 text-white">
                             {motorcycles.map((motorcycle) => (
                               <SelectItem key={motorcycle.value} value={motorcycle.value}>
                                 {motorcycle.label}
