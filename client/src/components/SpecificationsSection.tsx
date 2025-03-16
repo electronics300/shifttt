@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Zap, Gauge, Battery, Cpu, Check, XCircle, Clock } from "lucide-react";
 
 export function SpecificationsSection() {
-  const mainSpecs = [
+  const specs = [
     {
       icon: <Zap className="h-5 w-5" />,
       title: "Response Time",
@@ -29,99 +29,71 @@ export function SpecificationsSection() {
     }
   ];
 
-  const dimensions = [
-    { label: "Length", value: "68mm" },
-    { label: "Width", value: "42mm" },
-    { label: "Height", value: "18mm" },
-    { label: "Sensor Cable Length", value: "450mm" },
-  ];
-
-  const compatibility = [
-    { label: "Japanese Sportbikes", value: "Full Support", status: "success" },
-    { label: "European Sportbikes", value: "Full Support", status: "success" },
-    { label: "American Motorcycles", value: "Limited Support", status: "warning" },
-    { label: "Electric Motorcycles", value: "Coming Soon", status: "error" },
-  ];
-
   return (
     <section id="specs" className="py-24 bg-black">
       <div className="container mx-auto px-4">
-        <motion.div 
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">Technical Specifications</h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Every component engineered to deliver uncompromising performance.
-          </p>
-        </motion.div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {mainSpecs.map((spec, index) => (
-            <motion.div 
-              key={index} 
-              className="bg-black/70 backdrop-blur-sm border border-white/10 p-6 rounded-lg cursor-pointer"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              whileHover={{ y: -5 }}
-            >
-              <div className="flex items-center mb-4">
-                <div className="w-10 h-10 rounded-full bg-white text-black flex items-center justify-center mr-4">
-                  {spec.icon}
-                </div>
-                <h3 className="text-lg font-semibold">{spec.title}</h3>
-              </div>
-              <p className="text-3xl font-bold">{spec.value}</p>
-              <p className="text-gray-400 mt-2">{spec.description}</p>
-            </motion.div>
-          ))}
-        </div>
-        
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
-          <motion.div 
-            className="bg-black/60 backdrop-blur-md border border-white/10 p-8 rounded-lg"
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h3 className="text-2xl font-bold mb-6">Dimensions</h3>
-            <div className="space-y-4 text-lg">
-              {dimensions.map((item, index) => (
-                <div key={index} className="flex justify-between items-center pb-3 border-b border-gray-800">
-                  <span>{item.label}</span>
-                  <span className="font-semibold">{item.value}</span>
-                </div>
-              ))}
-            </div>
-          </motion.div>
+        <div className="flex flex-col lg:flex-row">
+          {/* Left side - Features heading */}
+          <div className="lg:w-1/4 mb-8 lg:mb-0">
+            <h3 className="text-sm uppercase tracking-wider text-white/70 mb-4">Features</h3>
+          </div>
           
-          <motion.div 
-            className="bg-black/60 backdrop-blur-md border border-white/10 p-8 rounded-lg"
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h3 className="text-2xl font-bold mb-6">Compatibility</h3>
-            <div className="space-y-4 text-lg">
-              {compatibility.map((item, index) => (
-                <div key={index} className="flex justify-between items-center pb-3 border-b border-gray-800">
-                  <span>{item.label}</span>
-                  <span className={`font-semibold ${
-                    item.status === "success" ? "text-white" : 
-                    item.status === "warning" ? "text-gray-400" : 
-                    "text-gray-500"
-                  }`}>{item.value}</span>
-                </div>
-              ))}
+          {/* Right side - Ball Technology */}
+          <div className="lg:w-3/4">
+            <div className="mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">QuickShift™ technology</h2>
+              <p className="text-lg text-white/70 max-w-2xl">
+                Turns on the spot and follows you effortlessly around the track, without the awkward moves.
+              </p>
             </div>
-          </motion.div>
+            
+            <div className="flex">
+              <div className="w-2/3">
+                {/* Technical illustration with animation */}
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8 }}
+                  className="bg-transparent relative h-96"
+                >
+                  <div className="absolute w-full h-full">
+                    {/* SVG animation representing shift technology */}
+                    <svg viewBox="0 0 500 500" className="w-full h-full">
+                      <motion.g 
+                        initial={{ rotate: 0 }}
+                        animate={{ rotate: 360 }}
+                        transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+                      >
+                        {Array.from({ length: 36 }).map((_, i) => (
+                          <line 
+                            key={i} 
+                            x1="250" 
+                            y1="250" 
+                            x2={250 + 200 * Math.cos(i * 10 * Math.PI / 180)} 
+                            y2={250 + 200 * Math.sin(i * 10 * Math.PI / 180)} 
+                            stroke="white" 
+                            strokeWidth={i % 2 === 0 ? "2" : "1"} 
+                            strokeOpacity={i % 2 === 0 ? "0.8" : "0.4"}
+                          />
+                        ))}
+                      </motion.g>
+                    </svg>
+                  </div>
+                </motion.div>
+              </div>
+              
+              <div className="w-1/3">
+                {/* Navigation dots */}
+                <div className="flex justify-center space-x-2 mt-8">
+                  <div className="w-2 h-2 rounded-full bg-white"></div>
+                  <div className="w-2 h-2 rounded-full bg-white/30"></div>
+                  <div className="w-2 h-2 rounded-full bg-white/30"></div>
+                  <div className="w-2 h-2 rounded-full bg-white/30"></div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

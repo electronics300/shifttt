@@ -41,19 +41,19 @@ export function Header() {
   return (
     <header
       className={`fixed w-full z-50 transition-colors duration-300 ${
-        isScrolled ? "bg-black/80 backdrop-blur-sm" : "bg-transparent"
+        isScrolled ? "bg-white" : "bg-white"
       }`}
     >
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <a
           href="#"
-          className="text-2xl font-bold tracking-tighter"
+          className="text-2xl font-bold tracking-tighter text-black"
           onClick={(e) => {
             e.preventDefault();
             window.scrollTo({ top: 0, behavior: "smooth" });
           }}
         >
-          QUICKSHIFT<span className="font-bold">PRO</span>
+          quickshift<span className="font-bold">pro</span>
         </a>
 
         <nav className="hidden md:flex space-x-8">
@@ -61,7 +61,7 @@ export function Header() {
             <a
               key={link.id}
               href={`#${link.id}`}
-              className="text-sm font-medium hover:text-white hover:font-bold transition-colors"
+              className="text-sm font-medium text-black hover:text-black/70 transition-colors"
               onClick={(e) => {
                 e.preventDefault();
                 scrollToSection(link.id);
@@ -75,10 +75,10 @@ export function Header() {
         <Sheet>
           <SheetTrigger asChild className="md:hidden">
             <button className="focus:outline-none" aria-label="Menu">
-              <MenuIcon className="h-6 w-6" />
+              <MenuIcon className="h-6 w-6 text-black" />
             </button>
           </SheetTrigger>
-          <SheetContent side="right" className="bg-black border-gray-800">
+          <SheetContent side="right" className="bg-white border-gray-100">
             <div className="flex flex-col space-y-4 mt-8">
               {navLinks.map((link) => (
                 <a

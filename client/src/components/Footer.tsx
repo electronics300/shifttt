@@ -36,7 +36,7 @@ export function Footer() {
                 scrollToTop();
               }}
             >
-              QUICKSHIFT<span className="font-bold">PRO</span>
+              quickshift<span className="font-bold">pro</span>
             </a>
             <p className="text-gray-500 mt-2">Premium motorcycle quickshifter technology.</p>
           </div>

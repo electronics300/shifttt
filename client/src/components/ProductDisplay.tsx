@@ -14,58 +14,76 @@ export function ProductDisplay() {
   };
 
   const specs = [
-    { label: "RESPONSE TIME", value: "5ms" },
-    { label: "WEIGHT", value: "72g" },
-    { label: "POWER", value: "12V DC" },
+    { label: "WEIGHT", value: "17.3lbs" },
+    { label: "POWER", value: "280AW" },
+    { label: "CAPACITY", value: "0.53 gallons" },
+    { label: "CORD LENGTH", value: "21ft" },
   ];
 
   return (
-    <section className="py-24 bg-white relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-1/3 h-full bg-black opacity-5 rounded-l-full"></div>
-      
+    <section className="min-h-screen bg-white relative overflow-hidden pt-32 pb-16">
       <div className="container mx-auto px-4 relative z-10">
-        <div className="flex flex-col md:flex-row items-center">
-          <motion.div 
-            className="md:w-1/2 mb-12 md:mb-0"
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="text-3xl md:text-5xl font-bold mb-6 text-black">
-              QUICKSHIFT<span className="font-bold">PRO</span>
-            </h2>
-            <p className="text-xl text-gray-600 mb-8">
-              Precision engineered for performance. The ultimate quickshifter for racers who demand excellence.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 mb-8">
+        {/* Product Name and Tagline */}
+        <div className="mb-16 max-w-xl">
+          <h4 className="text-xs uppercase tracking-widest text-black mb-2 font-light">••••••</h4>
+          <h2 className="text-lg text-black font-medium mb-1">
+            Engineered for high precision shifting.
+          </h2>
+          <p className="text-black text-lg font-light">
+            No other quickshifter responds faster.
+          </p>
+          
+          <div className="mt-8 flex flex-col gap-2">
+            <a href="#features" className="text-xs uppercase tracking-wider text-black/70 hover:text-black">Features</a>
+            <a href="#specs" className="text-xs uppercase tracking-wider text-black/70 hover:text-black">Specifications</a>
+            <a href="#faq" className="text-xs uppercase tracking-wider text-black/70 hover:text-black">In the box</a>
+            <a href="#reviews" className="text-xs uppercase tracking-wider text-black/70 hover:text-black">Reviews</a>
+          </div>
+        </div>
+        
+        <div className="flex flex-col lg:flex-row items-start">
+          {/* Left side content */}
+          <div className="lg:w-1/2 relative mb-12 lg:mb-0 order-2 lg:order-1">
+            {/* Price and Add to Cart */}
+            <div className="flex mb-20">
+              <div className="w-1/2 bg-black text-white p-6">
+                <div className="text-sm mb-1 font-light">MODEL</div>
+                <div className="text-xl mb-1">QuickShift Pro</div>
+                <div className="text-lg">$359</div>
+              </div>
+              <div className="w-1/2 bg-amber-500 text-black p-6 flex items-center justify-center">
+                <Button 
+                  className="bg-transparent hover:bg-amber-600 text-black border-black border font-medium px-8"
+                  onClick={scrollToWaitlist}
+                >
+                  ADD
+                </Button>
+              </div>
+            </div>
+            
+            {/* Specifications */}
+            <div className="space-y-8">
               {specs.map((spec, index) => (
-                <div key={index} className="px-6 py-4 bg-black/80 backdrop-blur-sm border border-black/20 rounded-lg shadow-lg">
-                  <p className="text-sm text-gray-200">{spec.label}</p>
-                  <p className="text-2xl font-bold text-white">{spec.value}</p>
+                <div key={index} className="border-t border-gray-200 pt-4">
+                  <div className="text-xs uppercase tracking-wider text-black/60 mb-1">{spec.label}</div>
+                  <div className="text-xl text-black font-medium">{spec.value}</div>
                 </div>
               ))}
             </div>
-            <Button 
-              className="bg-black text-white hover:bg-black/90 shadow-lg"
-              onClick={scrollToWaitlist}
-            >
-              Join the Waitlist
-            </Button>
-          </motion.div>
+          </div>
           
+          {/* Product Image - Right side */}
           <motion.div 
-            className="md:w-1/2 flex justify-center"
-            initial={{ opacity: 0, x: 30, rotate: -6 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            className="lg:w-1/2 order-1 lg:order-2"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            whileHover={{ rotate: 0 }}
+            transition={{ duration: 0.8 }}
           >
             <img 
               src="https://images.unsplash.com/photo-1588438378022-9a516a194d57?auto=format&q=80" 
               alt="QUICKSHIFT PRO Module" 
-              className="max-w-full rounded-lg shadow-2xl"
+              className="w-full h-auto"
             />
           </motion.div>
         </div>
