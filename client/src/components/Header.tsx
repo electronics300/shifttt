@@ -32,11 +32,7 @@ export function Header() {
   };
 
   const navLinks = [
-    { name: "Vehicles", id: "vehicles" },
-    { name: "Energy", id: "energy" },
-    { name: "Charging", id: "charging" },
-    { name: "Discover", id: "discover" },
-    { name: "Shop", id: "shop" },
+    //Removed items
   ];
 
   return (
