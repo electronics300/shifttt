@@ -112,7 +112,7 @@ export function WaitlistSection() {
           </p>
 
           <motion.div
-            className="bg-black p-8 rounded-lg shadow-2xl"
+            className="bg-black/60 backdrop-blur-md p-8 rounded-lg shadow-2xl border border-white/10"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -141,7 +141,7 @@ export function WaitlistSection() {
                           <FormControl>
                             <Input
                               placeholder="Your first name"
-                              className="bg-zinc-900 border-gray-700 text-white"
+                              className="bg-zinc-900/80 backdrop-blur-sm border-gray-700/50 text-white focus:border-white/50"
                               {...field}
                             />
                           </FormControl>
@@ -159,7 +159,7 @@ export function WaitlistSection() {
                           <FormControl>
                             <Input
                               placeholder="Your last name"
-                              className="bg-zinc-900 border-gray-700 text-white"
+                              className="bg-zinc-900/80 backdrop-blur-sm border-gray-700/50 text-white focus:border-white/50"
                               {...field}
                             />
                           </FormControl>
@@ -179,7 +179,7 @@ export function WaitlistSection() {
                           <Input
                             type="email"
                             placeholder="your@email.com"
-                            className="bg-zinc-900 border-gray-700 text-white"
+                            className="bg-zinc-900/80 backdrop-blur-sm border-gray-700/50 text-white focus:border-white/50"
                             {...field}
                           />
                         </FormControl>
@@ -196,11 +196,11 @@ export function WaitlistSection() {
                         <FormLabel className="text-sm font-medium text-gray-400">Motorcycle Model</FormLabel>
                         <Select onValueChange={field.onChange} defaultValue={field.value}>
                           <FormControl>
-                            <SelectTrigger className="bg-zinc-900 border-gray-700 text-white">
+                            <SelectTrigger className="bg-zinc-900/80 backdrop-blur-sm border-gray-700/50 text-white focus:border-white/50">
                               <SelectValue placeholder="Select your motorcycle" />
                             </SelectTrigger>
                           </FormControl>
-                          <SelectContent className="bg-zinc-900 border-gray-700 text-white">
+                          <SelectContent className="bg-zinc-900/90 backdrop-blur-md border-gray-700/50 text-white">
                             {motorcycles.map((motorcycle) => (
                               <SelectItem key={motorcycle.value} value={motorcycle.value}>
                                 {motorcycle.label}

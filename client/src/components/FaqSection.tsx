@@ -64,10 +64,10 @@ export function FaqSection() {
                 transition={{ duration: 0.4, delay: index * 0.1 }}
               >
                 <AccordionItem value={`faq-${index}`} className="mb-4 border-0">
-                  <AccordionTrigger className="bg-zinc-900 rounded-lg p-6 text-left hover:bg-zinc-800 hover:no-underline">
+                  <AccordionTrigger className="bg-zinc-900/80 backdrop-blur-sm border border-white/10 rounded-lg p-6 text-left hover:bg-zinc-800/80 hover:no-underline">
                     <h3 className="text-xl font-semibold">{faq.question}</h3>
                   </AccordionTrigger>
-                  <AccordionContent className="bg-zinc-900 bg-opacity-50 mt-1 p-6 rounded-b-lg">
+                  <AccordionContent className="bg-zinc-900/60 backdrop-blur-md border-x border-b border-white/10 mt-1 p-6 rounded-b-lg">
                     <p className="text-gray-300">{faq.answer}</p>
                   </AccordionContent>
                 </AccordionItem>
