@@ -26,23 +26,11 @@ export function ProductDisplay() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <div className="grid grid-cols-1 gap-6">
-              <img 
-                src="/images/product/quickshift-display.jpg" 
-                alt="QUICKSHIFT PRO Display Module" 
-                className="w-full h-auto rounded-lg shadow-lg"
-              />
-              <img 
-                src="/images/product/quickshift-mount.jpg" 
-                alt="QUICKSHIFT PRO Mount Design" 
-                className="w-full h-auto rounded-lg shadow-lg"
-              />
-              <img 
-                src="/images/product/quickshift-edge.jpg" 
-                alt="QUICKSHIFT PRO Edge View" 
-                className="w-full h-auto rounded-lg shadow-lg"
-              />
-            </div>
+            <img 
+              src="https://images.unsplash.com/photo-1588438378022-9a516a194d57?auto=format&q=80" 
+              alt="QUICKSHIFT PRO Module" 
+              className="w-full h-auto rounded-lg"
+            />
           </motion.div>
           
           {/* Right side - Content */}
