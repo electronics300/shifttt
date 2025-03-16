@@ -226,7 +226,7 @@ export function WaitlistSection() {
                           />
                         </FormControl>
                         <div className="space-y-1 leading-none">
-                          <FormLabel className="text-sm text-gray-400">
+                          <FormLabel className="text-sm text-black">
                             I agree to receive product updates and news about QUICKSHIFT PRO. You can unsubscribe at any time.
                           </FormLabel>
                           <FormMessage />
@@ -247,7 +247,7 @@ export function WaitlistSection() {
             )}
           </motion.div>
 
-          <p className="mt-6 text-sm text-gray-500">
+          <p className="mt-6 text-sm text-white/70">
             By submitting this form, you agree to our Privacy Policy and Terms of Service.
           </p>
         </motion.div>

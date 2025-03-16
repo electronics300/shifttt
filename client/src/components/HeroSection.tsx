@@ -27,7 +27,7 @@ export function HeroSection() {
           alt="High-performance motorcycle in motion"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/40 backdrop-blur-sm"></div>
+        <div className="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
       </div>
 
       <motion.div
@@ -47,7 +47,7 @@ export function HeroSection() {
         <div className="flex flex-col sm:flex-row justify-center gap-4">
           <Button
             size="lg"
-            className="bg-white text-black hover:bg-white/90 transition-all transform hover:scale-105"
+            className="bg-black text-white hover:bg-black/90 transition-all transform hover:scale-105 border border-white/20 shadow-lg"
             onClick={() => scrollToSection("waitlist")}
           >
             Join the Waitlist
