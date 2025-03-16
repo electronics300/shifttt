@@ -43,14 +43,18 @@ export function HeroSection() {
           <p className="text-xl text-white/90 font-light mb-12">
             0% APR Financing Ending March 31
           </p>
-          
+
           <div className="grid grid-cols-3 gap-8 mb-12">
             <div>
-              <p className="text-2xl md:text-3xl font-medium text-white">15 ms</p>
+              <p className="text-2xl md:text-3xl font-medium text-white">
+                15 ms
+              </p>
               <p className="text-sm text-white/70">Response Time</p>
             </div>
             <div>
-              <p className="text-2xl md:text-3xl font-medium text-white">360°</p>
+              <p className="text-2xl md:text-3xl font-medium text-white">
+                360°
+              </p>
               <p className="text-sm text-white/70">Detection Angle</p>
             </div>
             <div>
@@ -62,27 +66,12 @@ export function HeroSection() {
       </div>
 
       {/* Bottom action buttons */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.3 }}
         className="z-10 container mx-auto px-4"
       >
-        <div className="grid grid-cols-3 gap-4 text-center">
-          <div className="p-4">
-            <p className="text-xl md:text-2xl font-medium text-white">15 ms</p>
-            <p className="text-sm text-white/70 font-light">Response Time</p>
-          </div>
-          <div className="p-4">
-            <p className="text-xl md:text-2xl font-medium text-white">360°</p>
-            <p className="text-sm text-white/70 font-light">Detection Angle</p>
-          </div>
-          <div className="p-4">
-            <p className="text-xl md:text-2xl font-medium text-white">AWD</p>
-            <p className="text-sm text-white/70 font-light">Compatibility</p>
-          </div>
-        </div>
-
         <div className="flex flex-col gap-4 mt-6">
           <Button
             size="lg"
