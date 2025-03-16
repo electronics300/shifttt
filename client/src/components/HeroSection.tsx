@@ -29,34 +29,43 @@ export function HeroSection() {
         />
       </div>
 
-      {/* Center content */}
+      {/* Left-aligned content */}
       <div className="flex-1 flex flex-col justify-center z-10 container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="max-w-xl"
+          className="max-w-xl ml-0"
         >
-          <h1 className="text-5xl md:text-7xl font-medium mb-4 text-white">
+          <h1 className="text-5xl md:text-7xl font-medium mb-4 text-white text-left">
             QuickShift Pro
           </h1>
-          <p className="text-xl text-white/90 font-light mb-12">
+          <p className="text-xl text-white/90 font-light mb-8 text-left">
             0% APR Financing Ending March 31
           </p>
           
-          <div className="grid grid-cols-3 gap-8 mb-12">
-            <div>
-              <p className="text-2xl md:text-3xl font-medium text-white">15 ms</p>
+          <div className="flex flex-col gap-6 mb-8">
+            <div className="flex items-center gap-4">
+              <p className="text-2xl md:text-3xl font-medium text-white min-w-[100px]">15 ms</p>
               <p className="text-sm text-white/70">Response Time</p>
             </div>
-            <div>
-              <p className="text-2xl md:text-3xl font-medium text-white">360°</p>
+            <div className="flex items-center gap-4">
+              <p className="text-2xl md:text-3xl font-medium text-white min-w-[100px]">360°</p>
               <p className="text-sm text-white/70">Detection Angle</p>
             </div>
-            <div>
-              <p className="text-2xl md:text-3xl font-medium text-white">AWD</p>
+            <div className="flex items-center gap-4">
+              <p className="text-2xl md:text-3xl font-medium text-white min-w-[100px]">AWD</p>
               <p className="text-sm text-white/70">Compatibility</p>
             </div>
+          </div>
+
+          <div className="flex flex-col gap-4">
+            <Button size="lg" className="w-full md:w-auto">
+              Order Now
+            </Button>
+            <p className="text-sm text-white/70">
+              Experience QuickShift Pro
+            </p>
           </div>
         </motion.div>
       </div>
