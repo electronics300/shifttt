@@ -65,7 +65,7 @@ export function FeaturesSection() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
-                <div className="bg-primary rounded-full p-2 mt-1">
+                <div className="bg-white rounded-full p-2 mt-1 text-black">
                   {feature.icon}
                 </div>
                 <div>

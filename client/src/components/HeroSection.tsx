@@ -37,9 +37,9 @@ export function HeroSection() {
         className="container mx-auto px-4 z-10 text-center"
       >
         <h1 className="text-4xl md:text-7xl font-extrabold mb-6 tracking-tighter">
-          Shift <span className="text-primary">Faster.</span>
+          Shift <span className="text-white font-bold">Faster.</span>
           <br />
-          Race <span className="text-primary">Better.</span>
+          Race <span className="text-white font-bold">Better.</span>
         </h1>
         <p className="text-xl md:text-2xl mb-10 max-w-3xl mx-auto text-gray-300">
           The ultimate quickshifter module engineered for precision performance and seamless gear changes.
@@ -47,7 +47,7 @@ export function HeroSection() {
         <div className="flex flex-col sm:flex-row justify-center gap-4">
           <Button
             size="lg"
-            className="bg-primary text-white hover:bg-primary/90 transition-all transform hover:scale-105"
+            className="bg-white text-black hover:bg-white/90 transition-all transform hover:scale-105"
             onClick={() => scrollToSection("waitlist")}
           >
             Join the Waitlist

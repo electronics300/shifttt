@@ -33,7 +33,7 @@ export function ProductDisplay() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-3xl md:text-5xl font-bold mb-6">
-              QUICKSHIFT<span className="text-primary">PRO</span>
+              QUICKSHIFT<span className="font-bold">PRO</span>
             </h2>
             <p className="text-xl text-gray-300 mb-8">
               Precision engineered for performance. The ultimate quickshifter for racers who demand excellence.
@@ -47,7 +47,7 @@ export function ProductDisplay() {
               ))}
             </div>
             <Button 
-              className="bg-primary text-white hover:bg-primary/90"
+              className="bg-white text-black hover:bg-white/90"
               onClick={scrollToWaitlist}
             >
               Join the Waitlist

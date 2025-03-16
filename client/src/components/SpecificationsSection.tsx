@@ -71,7 +71,7 @@ export function SpecificationsSection() {
               whileHover={{ y: -5 }}
             >
               <div className="flex items-center mb-4">
-                <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center mr-4">
+                <div className="w-10 h-10 rounded-full bg-white text-black flex items-center justify-center mr-4">
                   {spec.icon}
                 </div>
                 <h3 className="text-lg font-semibold">{spec.title}</h3>

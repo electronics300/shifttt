@@ -53,7 +53,7 @@ export function Header() {
             window.scrollTo({ top: 0, behavior: "smooth" });
           }}
         >
-          QUICKSHIFT<span className="text-primary">PRO</span>
+          QUICKSHIFT<span className="font-bold">PRO</span>
         </a>
 
         <nav className="hidden md:flex space-x-8">
@@ -61,7 +61,7 @@ export function Header() {
             <a
               key={link.id}
               href={`#${link.id}`}
-              className="text-sm font-medium hover:text-primary transition-colors"
+              className="text-sm font-medium hover:text-white hover:font-bold transition-colors"
               onClick={(e) => {
                 e.preventDefault();
                 scrollToSection(link.id);
