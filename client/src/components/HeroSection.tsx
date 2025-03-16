@@ -27,69 +27,51 @@ export function HeroSection() {
           alt="High-performance motorcycle in motion"
           className="w-full h-full object-cover"
         />
+        <div className="absolute inset-0 bg-black/50"></div>
       </div>
 
-      {/* Center content */}
-      <div className="flex-1 flex flex-col justify-center z-10 container mx-auto px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="max-w-xl"
-        >
-          <h1 className="text-5xl md:text-7xl font-medium mb-4 text-white">
+      <div className="container mx-auto px-4 flex-1 flex flex-col justify-center z-10">
+        <div className="max-w-3xl">
+          <motion.h1 
+            className="text-5xl md:text-6xl font-bold text-white mb-6"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
             QuickShift Pro
-          </h1>
-          <p className="text-xl text-white/90 font-light mb-12">
-            0% APR Financing Ending March 31
-          </p>
+          </motion.h1>
 
-          <div className="grid grid-cols-3 gap-8 mb-12">
-            <div>
-              <p className="text-2xl md:text-3xl font-medium text-white">
-                15 ms
-              </p>
-              <p className="text-sm text-white/70">Response Time</p>
-            </div>
-            <div>
-              <p className="text-2xl md:text-3xl font-medium text-white">
-                360°
-              </p>
-              <p className="text-sm text-white/70">Detection Angle</p>
-            </div>
-            <div>
-              <p className="text-2xl md:text-3xl font-medium text-white">AWD</p>
-              <p className="text-sm text-white/70">Compatibility</p>
-            </div>
-          </div>
-        </motion.div>
-      </div>
+          <motion.p 
+            className="text-xl text-white/90 mb-8"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+          >
+            The next generation quick shifter for performance motorcycles
+          </motion.p>
 
-      {/* Bottom action buttons */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.3 }}
-        className="z-10 container mx-auto px-4"
-      >
-        <div className="flex flex-col gap-4 mt-6">
-          <Button
-            size="lg"
-            className="bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md w-full md:w-64 py-6"
-            onClick={() => scrollToSection("waitlist")}
+          <motion.div 
+            className="flex flex-wrap gap-4"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
           >
-            Order Now
-          </Button>
-          <Button
-            variant="outline"
-            size="lg"
-            className="border-white text-white hover:bg-white/10 rounded-md w-full md:w-64 py-6"
-            onClick={() => scrollToSection("specs")}
-          >
-            Experience QuickShift Pro
-          </Button>
+            <Button
+              size="lg"
+              onClick={() => scrollToSection("contact")}
+            >
+              Order Now
+            </Button>
+            <Button
+              variant="outline"
+              size="lg"
+              onClick={() => scrollToSection("features")}
+            >
+              Learn More
+            </Button>
+          </motion.div>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }
