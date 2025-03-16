@@ -30,28 +30,43 @@ export function HeroSection() {
       </div>
 
       {/* Center content */}
-      <div className="flex-1 flex flex-col items-center justify-center z-10">
+      <div className="flex-1 flex flex-col justify-center z-10 container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center"
+          className="max-w-xl"
         >
-          <h1 className="text-5xl md:text-7xl font-medium mb-1 text-white">
+          <h1 className="text-5xl md:text-7xl font-medium mb-4 text-white">
             QuickShift Pro
           </h1>
-          <p className="text-xl text-white/90 font-light">
+          <p className="text-xl text-white/90 font-light mb-12">
             0% APR Financing Ending March 31
           </p>
+          
+          <div className="grid grid-cols-3 gap-8 mb-12">
+            <div>
+              <p className="text-2xl md:text-3xl font-medium text-white">15 ms</p>
+              <p className="text-sm text-white/70">Response Time</p>
+            </div>
+            <div>
+              <p className="text-2xl md:text-3xl font-medium text-white">360°</p>
+              <p className="text-sm text-white/70">Detection Angle</p>
+            </div>
+            <div>
+              <p className="text-2xl md:text-3xl font-medium text-white">AWD</p>
+              <p className="text-sm text-white/70">Compatibility</p>
+            </div>
+          </div>
         </motion.div>
       </div>
 
-      {/* Bottom specs section */}
+      {/* Bottom action buttons */}
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.3 }}
-        className="z-10 w-full md:max-w-4xl mx-auto"
+        className="z-10 container mx-auto px-4"
       >
         <div className="grid grid-cols-3 gap-4 text-center">
           <div className="p-4">
