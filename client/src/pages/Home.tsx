@@ -1,4 +1,3 @@
-
 import { Header } from "@/components/Header";
 import { HeroSection } from "@/components/HeroSection";
 import { FeaturesSection } from "@/components/FeaturesSection";
@@ -9,6 +8,7 @@ import { InstallationSection } from "@/components/InstallationSection";
 import { FaqSection } from "@/components/FaqSection";
 import { WaitlistSection } from "@/components/WaitlistSection";
 import { Footer } from "@/components/Footer";
+import { AboutSection } from "@/components/AboutSection"; // Import the AboutSection component
 
 export default function Home() {
   return (
@@ -20,7 +20,7 @@ export default function Home() {
       <SpecificationsSection />
       <InstallationSection />
       <VideoSection />
-      <FaqSection />
+      <AboutSection /> {/* Added AboutSection */}
       <WaitlistSection />
       <Footer />
     </div>
