@@ -26,22 +26,22 @@ export function ProductDisplay() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl font-medium text-black mb-4">Safety First</h2>
+            <h2 className="text-3xl font-medium text-black mb-4">Advanced Technology</h2>
             <p className="text-lg text-black/80 mb-6">
-              Experience unparalleled safety with QuickShift Pro. Our advanced system features real-time monitoring and precision sensors that ensure optimal performance while maintaining the highest safety standards.
+              Experience unparalleled performance with QuickShift Pro. Our advanced system features real-time monitoring and precision sensors that ensure optimal gear changes with intelligent adaptation.
             </p>
             
             <div className="bg-gray-100 p-6 rounded-lg mb-6">
               <h3 className="text-xl font-medium text-black mb-4">Key Features</h3>
               <ul className="space-y-3">
                 <li className="flex items-center text-black/80">
-                  • Real-time shift pattern detection
+                  • Adaptive gear pattern detection
                 </li>
                 <li className="flex items-center text-black/80">
-                  • Advanced safety monitoring
+                  • Real-time performance monitoring
                 </li>
                 <li className="flex items-center text-black/80">
-                  • Precision gear optimization
+                  • Dynamic gear optimization
                 </li>
               </ul>
             </div>
@@ -64,9 +64,9 @@ export function ProductDisplay() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <h2 className="text-3xl font-medium text-black mb-4">Safety</h2>
+            <h2 className="text-3xl font-medium text-black mb-4">Precision Engineering</h2>
             <p className="text-lg text-black/80 mb-6">
-              Designed for maximum performance with uncompromised safety. The QuickShift Pro features advanced sensors that detect your shift pattern and optimize each gear change in real-time.
+              Engineered for flawless performance, the QuickShift Pro features advanced sensors that detect your shift pattern and optimize each gear change in real-time with uncompromising reliability.
             </p>
             
             <div className="bg-gray-100 p-6 rounded-lg mb-6">
