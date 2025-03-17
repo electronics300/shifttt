@@ -12,7 +12,7 @@ export function CompatibilitySection() {
   ];
 
   return (
-    <section className="py-24 bg-zinc-900">
+    <section className="py-24 bg-gradient-to-b from-zinc-900 to-black relative overflow-hidden">
       <div className="container mx-auto px-4">
         <motion.div 
           className="text-center mb-16"
@@ -31,7 +31,7 @@ export function CompatibilitySection() {
           {brands.map((brand, index) => (
             <motion.div
               key={brand.name}
-              className="bg-black/50 p-6 rounded-lg"
+              className="bg-white/5 backdrop-blur-sm p-6 rounded-lg border border-white/10 shadow-xl hover:bg-white/10 transition-all duration-300 hover:translate-y-[-5px]"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
