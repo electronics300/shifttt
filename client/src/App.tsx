@@ -4,8 +4,6 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import Home from "@/pages/Home";
 import NotFound from "@/pages/not-found";
-import { VideoSection } from "./components/VideoSection";
-import { CompatibilitySection } from "./components/CompatibilitySection";
 
 function Router() {
   return (
@@ -21,7 +19,6 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <Router />
       <Toaster />
-      <CompatibilitySection />
     </QueryClientProvider>
   );
 }
