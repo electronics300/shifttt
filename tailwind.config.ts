@@ -11,12 +11,6 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       colors: {
-        carnage: {
-          primary: "#FF0000",
-          dark: "#8B0000",
-          black: "#1A0000",
-          accent: "#FF3333"
-        },
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         card: {
