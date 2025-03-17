@@ -26,9 +26,9 @@ export function ProductDisplay() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl font-medium text-black mb-4">Advanced Technology</h2>
+            <h2 className="text-3xl font-medium text-black mb-4">Predator Performance</h2>
             <p className="text-lg text-black/80 mb-6">
-              Experience unparalleled performance with QuickShift Pro. Our advanced system features real-time monitoring and precision sensors that ensure optimal gear changes with intelligent adaptation.
+              Dominate every shift with RAPTOR's savage precision. Our apex predator technology delivers lightning-fast gear changes with bone-crushing force and surgical accuracy.
             </p>
             
             <div className="bg-gray-100 p-6 rounded-lg mb-6">

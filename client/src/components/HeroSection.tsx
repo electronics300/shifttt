@@ -47,8 +47,12 @@ export function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            The next generation quick shifter for performance motorcycles
+            Unleash raw power with the most aggressive quickshifter ever built
           </motion.p>
+
+          <motion.div className="flex items-center mb-4">
+            <span className="text-red-600 text-sm font-bold tracking-wider">APEX PREDATOR SERIES</span>
+          </motion.div>
 
           <motion.div 
             className="grid grid-cols-3 gap-8 mb-12"
