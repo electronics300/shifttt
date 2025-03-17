@@ -4,6 +4,9 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import Home from "@/pages/Home";
 import NotFound from "@/pages/not-found";
+import { AboutSection } from "@/components/AboutSection"; // Added import
+import { WaitlistSection } from "@/components/WaitlistSection";
+
 
 function Router() {
   return (
