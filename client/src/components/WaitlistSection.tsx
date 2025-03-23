@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { useMutation } from "@tanstack/react-query";
-import { useForm } from "react-hook-form";
+import { useForm, FieldValues } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useToast } from "@/hooks/use-toast";
@@ -38,6 +38,16 @@ const waitlistSchema = z.object({
 });
 
 type WaitlistFormValues = z.infer<typeof waitlistSchema>;
+
+interface FormFieldProps {
+  field: {
+    value: string | boolean;
+    onChange: (value: any) => void;
+    onBlur: () => void;
+    name: string;
+    ref: React.Ref<any>;
+  };
+}
 
 export function WaitlistSection() {
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -79,7 +89,7 @@ export function WaitlistSection() {
 
         console.log('Form submission completed');
         return response;
-      } catch (error) {
+      } catch (error: unknown) {
         console.error('Form submission error:', error);
         throw error;
       }
@@ -92,7 +102,7 @@ export function WaitlistSection() {
         description: "You've been added to our waitlist.",
       });
     },
-    onError: (error) => {
+    onError: (error: Error) => {
       console.error('Mutation error:', error);
       toast({
         title: "Something went wrong",
@@ -296,10 +306,14 @@ export function WaitlistSection() {
                   <div className="flex flex-col sm:flex-row gap-4">
                     <Button
                       type="submit"
-                      className="flex-1 bg-zinc-900 text-white hover:bg-gray-900 font-medium py-6"
-                      disabled={waitlistMutation.isPending}
+                      className="w-full bg-white text-black hover:bg-white/90"
+                      disabled={waitlistMutation.isLoading}
                     >
-                      {waitlistMutation.isPending ? "Submitting..." : "Join Waitlist"}
+                      {waitlistMutation.isLoading ? (
+                        "Submitting..."
+                      ) : (
+                        "Join Waitlist"
+                      )}
                     </Button>
                     <Button
                       type="button"
