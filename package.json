@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview"
+    "dev": "vite client",
+    "build": "tsc && vite build client",
+    "preview": "vite preview client"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.1.0",

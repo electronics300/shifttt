@@ -10,18 +10,15 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, path.resolve(__dirname, "client"), "");
   
   return {
-    plugins: [
-      react(),
-    ],
+    plugins: [react()],
     resolve: {
       alias: {
         "@": path.resolve(__dirname, "client/src"),
         "@shared": path.resolve(__dirname, "shared"),
       },
     },
-    root: path.resolve(__dirname, "client"),
     build: {
-      outDir: path.resolve(__dirname, "dist/public"),
+      outDir: path.resolve(__dirname, "dist"),
       emptyOutDir: true,
       sourcemap: true
     },
