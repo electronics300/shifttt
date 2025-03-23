@@ -1,91 +1,89 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import mainBackground from "../assets/images/mainbg.jpg";
 
 export function SpecificationsSection() {
   return (
-    <section id="specs" className="relative h-screen bg-white overflow-hidden flex flex-col">
-      {/* Main content */}
-      <div className="container mx-auto flex-1 flex flex-col md:flex-row items-center justify-center px-4 z-10 py-16">
-        {/* Left Column - Text/Content */}
-        <motion.div 
-          className="w-full md:w-1/2 md:pr-12 mb-12 md:mb-0"
+    <section
+      id="specs"
+      className="relative min-h-screen bg-black overflow-hidden flex items-center"
+    >
+      <div className="container mx-auto max-w-4xl px-4 pt-2 pb-14">
+        {/* Main Heading */}
+        <div className="mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="space-y-4 text-center"
+          >
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium text-teal-500">
+              Even longer battery life.
+            </h2>
+            <h3 className="text-3xl md:text-4xl lg:text-5xl font-medium text-white">
+              You'll need to recharge before it will.
+            </h3>
+          </motion.div>
+        </div>
+
+        {/* Product Image */}
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="mb-16"
         >
-          <h2 className="text-4xl font-medium mb-6 text-black">Performance</h2>
-          <p className="text-lg text-black/70 mb-8">
-            Engineered for maximum response time and precision, the QuickShift Pro delivers seamless performance in any riding condition, from daily commutes to race track environments.
-          </p>
-          
-          <div className="grid grid-cols-2 gap-8 mb-8">
-            <div>
-              <h3 className="text-xl font-medium text-black mb-2">15ms</h3>
-              <p className="text-black/70">Response time from rider input to gear activation</p>
-            </div>
-            <div>
-              <h3 className="text-xl font-medium text-black mb-2">99.9%</h3>
-              <p className="text-black/70">Precision rate in detection accuracy</p>
-            </div>
-            <div>
-              <h3 className="text-xl font-medium text-black mb-2">5 Years</h3>
-              <p className="text-black/70">Comprehensive warranty coverage</p>
-            </div>
-            <div>
-              <h3 className="text-xl font-medium text-black mb-2">250+</h3>
-              <p className="text-black/70">Compatible motorcycle models</p>
-            </div>
-          </div>
-          
-          <Button 
-            variant="outline"
-            className="border-black/20 text-black hover:bg-black/5 font-medium flex items-center"
-          >
-            Learn More <ArrowRight className="ml-2 h-4 w-4" />
-          </Button>
-        </motion.div>
-        
-        {/* Right Column - Image */}
-        <motion.div 
-          className="w-full md:w-1/2"
-          initial={{ opacity: 0, x: 20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-        >
-          <div className="aspect-video relative overflow-hidden rounded-lg">
-            <img 
-              src="https://images.unsplash.com/photo-1599819811279-d5ad9cccf838?auto=format&q=80" 
-              alt="QuickShift Pro performance data" 
-              className="w-full h-full object-cover"
+          <div className="aspect-[16/9]">
+            <img
+              src={mainBackground}
+              alt="QuickShift Pro Device"
+              className="w-full h-full object-cover rounded-3xl"
             />
           </div>
         </motion.div>
-      </div>
-      
-      {/* Bottom specs */}
-      <div className="bg-black/90 py-8 z-10">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+
+        {/* Content */}
+        <div className="space-y-12">
+          {/* Description */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="space-y-6"
+          >
+            <p className="text-lg text-gray-400">
+              QuickShift Pro has been designed to make room for a larger battery, which works together with our advanced processor to deliver 
+              <span className="font-medium text-white"> a big boost in battery life</span>, even with so many new features. So you can ride, race, and explore on — and on.
+            </p>
+
+            <p className="text-lg text-gray-400">
+              Snap on a new MagSafe charger for <span className="font-medium text-white">even faster wireless charging</span> — up to 25W with a 30W power adapter or higher, enabling up to 50% charge in around 30 minutes.
+            </p>
+          </motion.div>
+
+          {/* Stats */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="grid grid-cols-1 md:grid-cols-2 gap-8"
+          >
             <div>
-              <p className="text-2xl font-medium text-white">3.1 sec</p>
-              <p className="text-sm text-white/60">0-60 mph</p>
+              <p className="text-4xl font-medium text-teal-500 mb-2">27 hours</p>
+              <p className="text-base text-gray-400">continuous operation on Pro model</p>
             </div>
             <div>
-              <p className="text-2xl font-medium text-white">150 mph</p>
-              <p className="text-sm text-white/60">Top Speed</p>
+              <p className="text-4xl font-medium text-teal-500 mb-2">22 hours</p>
+              <p className="text-base text-gray-400">continuous operation on standard model</p>
             </div>
-            <div>
-              <p className="text-2xl font-medium text-white">28g</p>
-              <p className="text-sm text-white/60">Module Weight</p>
-            </div>
-            <div>
-              <p className="text-2xl font-medium text-white">-12%</p>
-              <p className="text-sm text-white/60">Lap Time Reduction</p>
-            </div>
-          </div>
+          </motion.div>
+
+          
         </div>
       </div>
     </section>

@@ -4,9 +4,9 @@ import { useMutation } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
-import { Check } from "lucide-react";
+import { Check, Bike, Zap, Shield, Clock } from "lucide-react";
+import { GOOGLE_FORM_CONFIG } from "@/config";
 import {
   Form,
   FormControl,
@@ -30,7 +30,8 @@ const waitlistSchema = z.object({
   firstName: z.string().min(2, "First name must be at least 2 characters"),
   lastName: z.string().min(2, "Last name must be at least 2 characters"),
   email: z.string().email("Please enter a valid email address"),
-  motorcycle: z.string().min(1, "Please select your motorcycle"),
+  motorcycleBrand: z.string().min(1, "Please select your motorcycle brand"),
+  motorcycleModel: z.string().min(2, "Please enter your motorcycle model"),
   consent: z.boolean().refine((val) => val === true, {
     message: "You must agree to the terms",
   }),
@@ -48,16 +49,43 @@ export function WaitlistSection() {
       firstName: "",
       lastName: "",
       email: "",
-      motorcycle: "",
+      motorcycleBrand: "",
+      motorcycleModel: "",
       consent: false,
     },
   });
 
   const waitlistMutation = useMutation({
     mutationFn: async (data: WaitlistFormValues) => {
-      return await apiRequest("POST", "/api/waitlist", data);
+      console.log('Submitting form data:', data);
+      
+      const formData = new FormData();
+      formData.append(GOOGLE_FORM_CONFIG.formFields.firstName, data.firstName);
+      formData.append(GOOGLE_FORM_CONFIG.formFields.lastName, data.lastName);
+      formData.append(GOOGLE_FORM_CONFIG.formFields.email, data.email);
+      formData.append(GOOGLE_FORM_CONFIG.formFields.motorcycleBrand, data.motorcycleBrand);
+      formData.append(GOOGLE_FORM_CONFIG.formFields.motorcycleModel, data.motorcycleModel);
+      formData.append(GOOGLE_FORM_CONFIG.formFields.consent, data.consent ? "Yes" : "No");
+
+      try {
+        const response = await fetch(
+          `https://docs.google.com/forms/d/e/${GOOGLE_FORM_CONFIG.formId}/formResponse`,
+          {
+            method: "POST",
+            body: formData,
+            mode: "no-cors",
+          }
+        );
+
+        console.log('Form submission completed');
+        return response;
+      } catch (error) {
+        console.error('Form submission error:', error);
+        throw error;
+      }
     },
     onSuccess: () => {
+      console.log('Mutation succeeded');
       setIsSubmitted(true);
       toast({
         title: "Success!",
@@ -65,24 +93,28 @@ export function WaitlistSection() {
       });
     },
     onError: (error) => {
+      console.error('Mutation error:', error);
       toast({
         title: "Something went wrong",
-        description: error.message || "There was an error submitting your information. Please try again.",
+        description: "There was an error submitting your information. Please try again.",
         variant: "destructive",
       });
     },
   });
 
   const onSubmit = (data: WaitlistFormValues) => {
+    console.log('Form submitted:', data);
     waitlistMutation.mutate(data);
   };
 
   const motorcycles = [
+    { value: "bajaj", label: "Bajaj" },
     { value: "honda", label: "Honda" },
     { value: "yamaha", label: "Yamaha" },
+    { value: "royalenfield", label: "Royal Enfield" },
+    { value: "tvs", label: "Tvs" },
     { value: "kawasaki", label: "Kawasaki" },
     { value: "suzuki", label: "Suzuki" },
-    { value: "ducati", label: "Ducati" },
     { value: "bmw", label: "BMW" },
     { value: "aprilia", label: "Aprilia" },
     { value: "other", label: "Other" },
@@ -92,9 +124,9 @@ export function WaitlistSection() {
     <section id="waitlist" className="py-24 bg-black relative overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-full">
         <img
-          src="https://images.unsplash.com/photo-1594032194509-0056023973b2?auto=format&q=80"
+          src="https://images.unsplash.com/photo-1524592094714-0f0654e20314?auto=format&q=80"
           alt="Racing motorcycle on track"
-          className="w-full h-full object-cover opacity-10"
+          className="w-full h-full object-cover opacity-30"
         />
       </div>
 
@@ -106,13 +138,16 @@ export function WaitlistSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">Join the Waitlist</h2>
-          <p className="text-xl text-gray-400 mb-10">
-            Be the first to know when QUICKSHIFT PRO becomes available. Limited units will be released in our initial production run.
+          <div className="flex items-center justify-center mb-6">
+            
+            <h2 className="text-3xl md:text-5xl font-bold text-white">Join the Waitlist</h2>
+          </div>
+          <p className="text-xl text-gray-300 mb-10">
+            Be the first to experience the future of motorcycle shifting. Limited units will be released in our initial production run.
           </p>
 
           <motion.div
-            className="bg-white/80 backdrop-blur-md p-8 rounded-lg shadow-2xl border border-black/20"
+            className="bg-zinc-900/80 backdrop-blur-md p-8 rounded-lg shadow-2xl border border-zinc-800"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -120,12 +155,12 @@ export function WaitlistSection() {
           >
             {isSubmitted ? (
               <div className="text-center py-8">
-                <div className="mx-auto rounded-full bg-white/20 w-20 h-20 flex items-center justify-center mb-4">
+                <div className="mx-auto rounded-full bg-zinc-800 w-20 h-20 flex items-center justify-center mb-4">
                   <Check className="h-10 w-10 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold mb-2">Thank You!</h3>
-                <p className="text-gray-400">
-                  You've been added to our waitlist. We'll notify you when QUICKSHIFT PRO becomes available.
+                <h3 className="text-2xl font-bold mb-2 text-white">Thank You!</h3>
+                <p className="text-gray-300">
+                  You've been added to our waitlist. We'll notify you when Terramog Raptor becomes available.
                 </p>
               </div>
             ) : (
@@ -137,15 +172,15 @@ export function WaitlistSection() {
                       name="firstName"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="text-sm font-medium text-black">First Name</FormLabel>
+                          <FormLabel className="text-sm font-medium text-gray-300">First Name</FormLabel>
                           <FormControl>
                             <Input
                               placeholder="Your first name"
-                              className="bg-black/70 backdrop-blur-sm border-black/20 text-white focus:border-white/50"
+                              className="bg-zinc-800 border-zinc-700 text-white placeholder:text-gray-400 focus:border-white"
                               {...field}
                             />
                           </FormControl>
-                          <FormMessage />
+                          <FormMessage className="text-red-400" />
                         </FormItem>
                       )}
                     />
@@ -155,15 +190,15 @@ export function WaitlistSection() {
                       name="lastName"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="text-sm font-medium text-black">Last Name</FormLabel>
+                          <FormLabel className="text-sm font-medium text-gray-300">Last Name</FormLabel>
                           <FormControl>
                             <Input
                               placeholder="Your last name"
-                              className="bg-black/70 backdrop-blur-sm border-black/20 text-white focus:border-white/50"
+                              className="bg-zinc-800 border-zinc-700 text-white placeholder:text-gray-400 focus:border-white"
                               {...field}
                             />
                           </FormControl>
-                          <FormMessage />
+                          <FormMessage className="text-red-400" />
                         </FormItem>
                       )}
                     />
@@ -174,82 +209,111 @@ export function WaitlistSection() {
                     name="email"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-sm font-medium text-black">Email Address</FormLabel>
+                        <FormLabel className="text-sm font-medium text-gray-300">Email Address</FormLabel>
                         <FormControl>
                           <Input
                             type="email"
                             placeholder="your@email.com"
-                            className="bg-black/70 backdrop-blur-sm border-black/20 text-white focus:border-white/50"
+                            className="bg-zinc-800 border-zinc-700 text-white placeholder:text-gray-400 focus:border-white"
                             {...field}
                           />
                         </FormControl>
-                        <FormMessage />
+                        <FormMessage className="text-red-400" />
                       </FormItem>
                     )}
                   />
 
-                  <FormField
-                    control={form.control}
-                    name="motorcycle"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel className="text-sm font-medium text-black">Motorcycle Model</FormLabel>
-                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <FormField
+                      control={form.control}
+                      name="motorcycleBrand"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-sm font-medium text-gray-300">Motorcycle Brand</FormLabel>
+                          <Select onValueChange={field.onChange} defaultValue={field.value}>
+                            <FormControl>
+                              <SelectTrigger className="bg-zinc-800 border-zinc-700 text-white focus:border-white">
+                                <SelectValue placeholder="Select brand" />
+                              </SelectTrigger>
+                            </FormControl>
+                            <SelectContent className="bg-zinc-900 border-zinc-700 text-white">
+                              {motorcycles.map((motorcycle) => (
+                                <SelectItem key={motorcycle.value} value={motorcycle.value}>
+                                  {motorcycle.label}
+                                </SelectItem>
+                              ))}
+                            </SelectContent>
+                          </Select>
+                          <FormMessage className="text-red-400" />
+                        </FormItem>
+                      )}
+                    />
+
+                    <FormField
+                      control={form.control}
+                      name="motorcycleModel"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-sm font-medium text-gray-300">Motorcycle Model</FormLabel>
                           <FormControl>
-                            <SelectTrigger className="bg-black/70 backdrop-blur-sm border-black/20 text-white focus:border-white/50">
-                              <SelectValue placeholder="Select your motorcycle" />
-                            </SelectTrigger>
+                            <Input
+                              placeholder="e.g., RS200"
+                              className="bg-zinc-800 border-zinc-700 text-white placeholder:text-gray-400 focus:border-white"
+                              {...field}
+                            />
                           </FormControl>
-                          <SelectContent className="bg-black/90 backdrop-blur-md border-black/20 text-white">
-                            {motorcycles.map((motorcycle) => (
-                              <SelectItem key={motorcycle.value} value={motorcycle.value}>
-                                {motorcycle.label}
-                              </SelectItem>
-                            ))}
-                          </SelectContent>
-                        </Select>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
+                          <FormMessage className="text-red-400" />
+                        </FormItem>
+                      )}
+                    />
+                  </div>
 
                   <FormField
                     control={form.control}
                     name="consent"
                     render={({ field }) => (
-                      <FormItem className="flex flex-row items-start space-x-3 space-y-0">
+                      <FormItem className="flex flex-row items-center gap-2">
                         <FormControl>
                           <Checkbox
                             checked={field.value}
                             onCheckedChange={field.onChange}
-                            className="data-[state=checked]:bg-white data-[state=checked]:text-black"
+                            className="border-zinc-700 data-[state=checked]:bg-white data-[state=checked]:border-white"
                           />
                         </FormControl>
-                        <div className="space-y-1 leading-none">
-                          <FormLabel className="text-sm text-black">
-                            I agree to receive product updates and news about QUICKSHIFT PRO. You can unsubscribe at any time.
+                        <div className="flex-1">
+                          <FormLabel className="text-sm text-gray-300 cursor-pointer">
+                            I agree to receive updates about QUICKSHIFT PRO and agree to the{" "}
+                            <a href="/privacy" className="text-white hover:underline">
+                              Privacy Policy
+                            </a>
+                            .
                           </FormLabel>
-                          <FormMessage />
                         </div>
                       </FormItem>
                     )}
                   />
 
-                  <Button
-                    type="submit"
-                    className="w-full bg-white text-black hover:bg-white/90"
-                    disabled={waitlistMutation.isPending}
-                  >
-                    {waitlistMutation.isPending ? "Submitting..." : "Join the Waitlist"}
-                  </Button>
+                  <div className="flex flex-col sm:flex-row gap-4">
+                    <Button
+                      type="submit"
+                      className="flex-1 bg-zinc-900 text-white hover:bg-gray-900 font-medium py-6"
+                      disabled={waitlistMutation.isPending}
+                    >
+                      {waitlistMutation.isPending ? "Submitting..." : "Join Waitlist"}
+                    </Button>
+                    <Button
+                      type="button"
+                      variant="outline"
+                      className="flex-1 bg-zinc-900 border-black text-white hover:bg-white/10 font-medium py-6"
+                      onClick={() => window.open('https://example.com', '_blank')}
+                    >
+                      Take a Servey
+                    </Button>
+                  </div>
                 </form>
               </Form>
             )}
           </motion.div>
-
-          <p className="mt-6 text-sm text-white/70">
-            By submitting this form, you agree to our Privacy Policy and Terms of Service.
-          </p>
         </motion.div>
       </div>
     </section>

@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { 
+import {
   Accordion,
   AccordionContent,
   AccordionItem,
-  AccordionTrigger
+  AccordionTrigger,
 } from "@/components/ui/accordion";
 
 export function FaqSection() {
@@ -32,7 +32,7 @@ export function FaqSection() {
   ];
 
   return (
-    <section id="faq" className="py-24 bg-white">
+    <section id="faq" className="py-24 bg-black">
       <div className="container mx-auto px-4">
         <motion.div 
           className="text-center mb-16"
@@ -41,8 +41,8 @@ export function FaqSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl md:text-5xl font-bold mb-4 text-black">Frequently Asked Questions</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <h2 className="text-3xl md:text-5xl font-bold mb-4 text-white">Frequently Asked Questions</h2>
+          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
             Everything you need to know about the QUICKSHIFT PRO.
           </p>
         </motion.div>
@@ -54,7 +54,7 @@ export function FaqSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <Accordion type="single" collapsible className="w-full">
+          <Accordion type="single" collapsible className="w-full space-y-4">
             {faqs.map((faq, index) => (
               <motion.div
                 key={index}
@@ -63,12 +63,12 @@ export function FaqSection() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
               >
-                <AccordionItem value={`faq-${index}`} className="mb-4 border-0">
-                  <AccordionTrigger className="bg-black/80 backdrop-blur-sm border border-black/20 rounded-lg p-6 text-left hover:bg-black/90 hover:no-underline shadow-lg">
+                <AccordionItem value={`faq-${index}`} className="border-none">
+                  <AccordionTrigger className="bg-zinc-900/80 backdrop-blur-sm border border-zinc-800 rounded-lg px-6 py-4 text-left hover:bg-zinc-900/90 hover:no-underline">
                     <h3 className="text-xl font-semibold text-white">{faq.question}</h3>
                   </AccordionTrigger>
-                  <AccordionContent className="bg-black/60 backdrop-blur-md border-x border-b border-black/20 mt-1 p-6 rounded-b-lg shadow-lg">
-                    <p className="text-gray-200">{faq.answer}</p>
+                  <AccordionContent className="bg-zinc-900/60 backdrop-blur-md border-x border-b border-zinc-800 mt-1 px-6 py-4 rounded-b-lg">
+                    <p className="text-gray-300">{faq.answer}</p>
                   </AccordionContent>
                 </AccordionItem>
               </motion.div>

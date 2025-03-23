@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import mainBackground from "../assets/images/mainbg.jpg";
 
 export function HeroSection() {
   const scrollToSection = (id: string) => {
@@ -19,76 +20,78 @@ export function HeroSection() {
   };
 
   return (
-    <section className="relative h-screen flex flex-col items-center justify-between overflow-hidden pt-16 pb-8">
+    <section className="relative h-screen flex items-end overflow-hidden">
       {/* Background image */}
       <div className="absolute inset-0 z-0">
         <img
-          src="https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&q=80"
-          alt="High-performance motorcycle in motion"
+          src={mainBackground}
+          alt="Performance motorcycle"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-black/50"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent"></div>
       </div>
 
-      <div className="container mx-auto px-4 flex-1 flex flex-col justify-center z-10">
-        <div className="max-w-3xl">
+      <div className="container mx-auto px-4 pb-12 z-10">
+        <div className="max-w-2xl mx-auto text-center">
           <motion.h1 
-            className="text-5xl md:text-6xl font-bold text-white mb-6"
+            className="text-4xl md:text-5xl font-bold text-white mb-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            QuickShift Pro
+            Raptor
           </motion.h1>
 
           <motion.p 
-            className="text-xl text-white/90 mb-8"
+            className="text-lg text-white/90 mb-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            The next generation quick shifter for performance motorcycles
+            The next generation quickshifter for performance motorcycles
           </motion.p>
 
           <motion.div 
-            className="grid grid-cols-3 gap-8 mb-12"
+            className="grid grid-cols-3 gap-6 mb-8"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <div>
-              <p className="text-2xl md:text-3xl font-medium text-white">
+              <p className="text-xl font-medium text-white">
                 15 ms
               </p>
-              <p className="text-sm text-white/70">Response Time</p>
+              <p className="text-xs text-white/70">Response Time</p>
             </div>
             <div>
-              <p className="text-2xl md:text-3xl font-medium text-white">
+              <p className="text-xl font-medium text-white">
                 360°
               </p>
-              <p className="text-sm text-white/70">Detection Angle</p>
+              <p className="text-xs text-white/70">Detection Angle</p>
             </div>
             <div>
-              <p className="text-2xl md:text-3xl font-medium text-white">AWD</p>
-              <p className="text-sm text-white/70">Compatibility</p>
+              <p className="text-xl font-medium text-white">AWD</p>
+              <p className="text-xs text-white/70">Compatibility</p>
             </div>
           </motion.div>
 
           <motion.div 
-            className="flex flex-wrap gap-4"
+            className="flex flex-wrap gap-3 justify-center"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
             <Button
-              size="lg"
-              onClick={() => scrollToSection("contact")}
+              size="default"
+              className="bg-black text-white hover:bg-white/10"
+              onClick={() => scrollToSection("waitlist")}
             >
-              Order Now
+              Join Wishlist
             </Button>
             <Button
               variant="outline"
-              size="lg"
+              size="default"
+              className="border-white text-white bg-transparent hover:bg-white/70"
               onClick={() => scrollToSection("features")}
             >
               Learn More

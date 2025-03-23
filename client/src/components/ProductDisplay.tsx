@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import productImage from "../assets/images/product.png";
 
 export function ProductDisplay() {
   const scrollToWaitlist = () => {
@@ -15,89 +16,82 @@ export function ProductDisplay() {
   };
 
   return (
-    <section className="min-h-screen bg-white relative overflow-hidden py-20">
-      <div className="container mx-auto px-4 max-w-6xl">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          {/* Left side - Content */}
-          <motion.div 
-            className="order-1"
+    <section className="min-h-screen bg-zinc-900 relative overflow-hidden flex items-center">
+      <div className="container mx-auto px-4 max-w-7xl py-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* Feature Overview */}
+          <motion.div
+            className="col-span-1 md:col-span-2 bg-stone-800/40 backdrop-blur-sm p-8 rounded-3xl border border-stone-700/50"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl font-medium text-black mb-4">Advanced Technology</h2>
-            <p className="text-lg text-black/80 mb-6">
-              Experience unparalleled performance with QuickShift Pro. Our advanced system features real-time monitoring and precision sensors that ensure optimal gear changes with intelligent adaptation.
+            <h2 className="text-3xl font-medium text-white mb-4">
+              Lumashift
+            </h2>
+            <p className="text-lg text-stone-300 mb-6">
+              Experience unparalleled performance with QuickShift Pro. Our
+              advanced system features real-time monitoring and precision
+              sensors that ensure optimal gear changes with intelligent
+              adaptation.
             </p>
-            
-            <div className="bg-gray-100 p-6 rounded-lg mb-6">
-              <h3 className="text-xl font-medium text-black mb-4">Key Features</h3>
-              <ul className="space-y-3">
-                <li className="flex items-center text-black/80">
-                  • Adaptive gear pattern detection
-                </li>
-                <li className="flex items-center text-black/80">
-                  • Real-time performance monitoring
-                </li>
-                <li className="flex items-center text-black/80">
-                  • Dynamic gear optimization
-                </li>
-              </ul>
-            </div>
-            
-            <Button
-              variant="default"
-              size="lg"
-              className="w-full md:w-auto"
-              onClick={scrollToWaitlist}
-            >
-              Order Now <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
           </motion.div>
-          
-          {/* Right side - Image */}
-          <motion.div 
-            className="order-2"
+
+          {/* Product Image */}
+          <motion.div
+            className="h-[300px] md:h-auto md:row-span-2 bg-stone-800/40 backdrop-blur-sm rounded-3xl overflow-hidden relative border border-stone-700/50"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <img
+              src={productImage}
+              alt="QuickShift Pro Device"
+              className="w-full h-full object-cover opacity-90"
+            />
+          </motion.div>
+
+          {/* Key Features */}
+          <motion.div
+            className="bg-stone-800/40 backdrop-blur-sm p-8 rounded-3xl border border-stone-700/50"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <h2 className="text-3xl font-medium text-black mb-4">Precision Engineering</h2>
-            <p className="text-lg text-black/80 mb-6">
-              Engineered for flawless performance, the QuickShift Pro features advanced sensors that detect your shift pattern and optimize each gear change in real-time with uncompromising reliability.
+            <h3 className="text-xl font-medium text-white mb-4">
+              Key Features
+            </h3>
+            <ul className="space-y-3">
+              <li className="flex items-center text-stone-300">
+                • Adaptive gear pattern detection
+              </li>
+              <li className="flex items-center text-stone-300">
+                • Real-time performance monitoring
+              </li>
+              <li className="flex items-center text-stone-300">
+                • Dynamic gear optimization
+              </li>
+            </ul>
+          </motion.div>
+
+          {/* Safety Rating */}
+          <motion.div
+            className="bg-stone-800/40 backdrop-blur-sm p-8 rounded-3xl border border-stone-700/50"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
+            <h3 className="text-xl font-medium text-white mb-2">
+              5-Star Safety Rating
+            </h3>
+            <p className="text-stone-300">
+              The QuickShift Pro has earned the highest safety rating in every
+              category from independent testing agencies worldwide.
             </p>
-            
-            <div className="bg-gray-100 p-6 rounded-lg mb-6">
-              <h3 className="text-xl font-medium text-black mb-2">5-Star Safety Rating</h3>
-              <p className="text-black/70">
-                The QuickShift Pro has earned the highest safety rating in every category from independent testing agencies worldwide.
-              </p>
-            </div>
-            
-            <div className="flex space-x-8 mb-8">
-              <div>
-                <h4 className="text-lg font-medium text-black">360°</h4>
-                <p className="text-sm text-black/70">Sensor Coverage</p>
-              </div>
-              <div>
-                <h4 className="text-lg font-medium text-black">15ms</h4>
-                <p className="text-sm text-black/70">Response Time</p>
-              </div>
-              <div>
-                <h4 className="text-lg font-medium text-black">0</h4>
-                <p className="text-sm text-black/70">False Triggers</p>
-              </div>
-            </div>
-            
-            <Button 
-              variant="outline"
-              className="text-black border-black/30 hover:bg-black/5 font-medium flex items-center"
-              onClick={() => window.open('#', '_blank')}
-            >
-              Learn More <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
           </motion.div>
         </div>
       </div>

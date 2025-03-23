@@ -1,81 +1,62 @@
 import { motion } from "framer-motion";
-import { ChevronDown } from "lucide-react"; 
+import productImage from "../assets/images/product.png";
 
 export function FeaturesSection() {
   return (
-    <section id="features" className="relative h-screen bg-black overflow-hidden flex flex-col">
-      {/* Full screen background image */}
-      <div className="absolute inset-0 z-0">
-        <img 
-          src="https://images.unsplash.com/photo-1558383817-abb21a24278a?auto=format&q=80" 
-          alt="Motorcycle interior digital dashboard"
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-black/50"></div>
-      </div>
-      
-      {/* Main content */}
-      <div className="container mx-auto flex-1 flex flex-col justify-center px-4 z-10">
-        <div className="max-w-3xl mx-auto text-center">
-          <motion.h2 
-            className="text-4xl md:text-5xl font-medium mb-6 text-white"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            Safety & Performance
-          </motion.h2>
-          
-          <motion.p 
-            className="text-lg text-white mb-8"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-          >
-            The QuickShift Pro maximizes control without distractions, featuring an unassuming design that integrates perfectly with any motorcycle electronics system.
-          </motion.p>
-          
-          <motion.div 
-            className="mt-12"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="p-4">
-                <p className="text-lg md:text-xl font-medium text-white">15-inch</p>
-                <p className="text-sm text-white/70">Touchscreen Display</p>
-              </div>
-              <div className="p-4">
-                <p className="text-lg md:text-xl font-medium text-white">Custom</p>
-                <p className="text-sm text-white/70">Rider Profiles</p>
-              </div>
-              <div className="p-4">
-                <p className="text-lg md:text-xl font-medium text-white">OTA</p>
-                <p className="text-sm text-white/70">Software Updates</p>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </div>
-      
-      {/* Scroll down indicator */}
-      <div className="absolute bottom-8 left-0 right-0 flex justify-center z-10">
-        <motion.div 
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ 
-            duration: 0.6, 
-            delay: 1,
-            repeatType: "reverse",
-            repeat: Infinity,
-          }}
-          className="text-white flex flex-col items-center"
+    <section id="features" className="relative min-h-screen bg-black overflow-hidden py-20">
+      <div className="container mx-auto px-4 max-w-7xl h-full flex items-center">
+        <motion.div
+          className="w-full bg-stone-900/40 backdrop-blur-sm rounded-3xl border border-stone-700/50 overflow-hidden"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
         >
-          <ChevronDown className="h-6 w-6" />
+          <div className="grid grid-cols-1 lg:grid-cols-2">
+            {/* Content Side */}
+            <div className="p-8 lg:p-12 flex flex-col justify-center">
+              <motion.div
+                className="space-y-6"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+              >
+                <h2 className="text-4xl lg:text-5xl font-medium text-white">
+                  Safety & Performance
+                </h2>
+                
+                <p className="text-lg text-stone-300">
+                  The QuickShift Pro maximizes control without distractions, featuring an unassuming design that integrates perfectly with any motorcycle electronics system.
+                </p>
+
+                <div className="grid grid-cols-3 gap-6 pt-6">
+                  <div className="space-y-2">
+                    <p className="text-2xl font-medium text-white">15-inch</p>
+                    <p className="text-sm text-stone-400">Touchscreen Display</p>
+                  </div>
+                  <div className="space-y-2">
+                    <p className="text-2xl font-medium text-white">Custom</p>
+                    <p className="text-sm text-stone-400">Rider Profiles</p>
+                  </div>
+                  <div className="space-y-2">
+                    <p className="text-2xl font-medium text-white">OTA</p>
+                    <p className="text-sm text-stone-400">Software Updates</p>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Image Side */}
+            <div className="relative h-[400px] lg:h-[600px] order-first lg:order-last">
+              <img
+                src={productImage}
+                alt="Motorcycle interior digital dashboard"
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-black/30"></div>
+            </div>
+          </div>
         </motion.div>
       </div>
     </section>

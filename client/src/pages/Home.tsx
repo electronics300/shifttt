@@ -21,6 +21,7 @@ export default function Home() {
       <InstallationSection />
       <VideoSection />
       <AboutSection /> {/* Added AboutSection */}
+      <FaqSection />
       <WaitlistSection />
       <Footer />
     </div>

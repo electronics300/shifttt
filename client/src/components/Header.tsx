@@ -1,19 +1,38 @@
 import { useState, useEffect } from "react";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { MenuIcon, Globe, HelpCircle } from "lucide-react";
+import { Globe, HelpCircle } from "lucide-react";
+import logoImage from "../assets/images/logo.png";
+
+interface NavLink {
+  id: string;
+  name: string;
+}
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
-  // Handle scroll effect for header background
+  // Handle scroll effect for header background and visibility
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      const currentScrollY = window.scrollY;
+      
+      // Update background opacity
+      setIsScrolled(currentScrollY > 50);
+      
+      // Update visibility based on scroll direction
+      if (currentScrollY < lastScrollY) {
+        setIsVisible(true); // Scrolling up
+      } else if (currentScrollY > lastScrollY && currentScrollY > 80) {
+        setIsVisible(false); // Scrolling down and not at top
+      }
+      
+      setLastScrollY(currentScrollY);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [lastScrollY]);
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -31,29 +50,33 @@ export function Header() {
     }
   };
 
-  const navLinks = [
-    //Removed items
-  ];
+  const navLinks: NavLink[] = [];
 
   return (
     <header
-      className={`fixed w-full z-50 transition-colors duration-300 ${
+      className={`fixed w-full z-50 transition-all duration-300 ${
         isScrolled ? "bg-black/60 backdrop-blur-md" : "bg-transparent"
+      } ${
+        isVisible ? "translate-y-0" : "-translate-y-full"
       }`}
     >
-      <div className="container mx-auto px-8 py-3 flex justify-between items-center">
+      <div className="container mx-auto px-3 py-4 flex justify-between items-center">
         <a
           href="#"
-          className="text-xl font-medium tracking-widest text-white"
+          className="flex items-center"
           onClick={(e) => {
             e.preventDefault();
             window.scrollTo({ top: 0, behavior: "smooth" });
           }}
         >
-          QUICKSHIFT PRO
+          <img 
+            src={logoImage}
+            alt="Company Logo" 
+            className="h-8 w-auto"
+          />
         </a>
 
-        <nav className="hidden md:flex space-x-6">
+        <nav className="flex space-x-6">
           {navLinks.map((link) => (
             <a
               key={link.id}
@@ -76,30 +99,6 @@ export function Header() {
           <a href="#" className="text-white">
             <Globe className="h-5 w-5" />
           </a>
-          <Sheet>
-            <SheetTrigger asChild className="md:hidden">
-              <button className="focus:outline-none" aria-label="Menu">
-                <MenuIcon className="h-6 w-6 text-white" />
-              </button>
-            </SheetTrigger>
-            <SheetContent side="right" className="bg-white border-gray-100">
-              <div className="flex flex-col space-y-4 mt-8">
-                {navLinks.map((link) => (
-                  <a
-                    key={link.id}
-                    href={`#${link.id}`}
-                    className="text-lg font-medium text-black hover:text-black/70 transition-colors py-2"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      scrollToSection(link.id);
-                    }}
-                  >
-                    {link.name}
-                  </a>
-                ))}
-              </div>
-            </SheetContent>
-          </Sheet>
         </div>
       </div>
     </header>
