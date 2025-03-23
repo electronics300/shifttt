@@ -23,6 +23,7 @@ export default defineConfig(({ mode }) => {
     build: {
       outDir: path.resolve(__dirname, "dist/public"),
       emptyOutDir: true,
+      sourcemap: true
     },
     define: {
       'process.env': env
