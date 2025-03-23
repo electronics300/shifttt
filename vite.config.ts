@@ -1,29 +1,22 @@
-import { defineConfig, loadEnv } from "vite";
+import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import path, { dirname } from "path";
-import { fileURLToPath } from "url";
+import path from "path";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-export default defineConfig(({ mode }) => {
-  const env = loadEnv(mode, path.resolve(__dirname, "client"), "");
-  
-  return {
-    plugins: [react()],
-    resolve: {
-      alias: {
-        "@": path.resolve(__dirname, "client/src"),
-        "@shared": path.resolve(__dirname, "shared"),
-      },
-    },
-    build: {
-      outDir: path.resolve(__dirname, "dist"),
-      emptyOutDir: true,
-      sourcemap: true
-    },
-    define: {
-      'process.env': env
-    }
-  };
+export default defineConfig({
+  plugins: [react()],
+  root: 'client',
+  base: './',
+  resolve: {
+    alias: [
+      {
+        find: '@',
+        replacement: path.resolve(__dirname, './client/src')
+      }
+    ]
+  },
+  build: {
+    outDir: '../dist',
+    emptyOutDir: true,
+    sourcemap: true
+  }
 });
