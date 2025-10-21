@@ -70,8 +70,8 @@ export function HeroSection() {
               <p className="text-xs text-white/70">Detection Angle</p>
             </div>
             <div>
-              <p className="text-xl font-medium text-white">AWD</p>
-              <p className="text-xs text-white/70">Compatibility</p>
+              <p className="text-xl font-medium text-white">LASER</p>
+              <p className="text-xs text-white/70">Sensor</p>
             </div>
           </motion.div>
 
