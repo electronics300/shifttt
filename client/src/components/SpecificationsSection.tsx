@@ -56,11 +56,26 @@ export function SpecificationsSection() {
             className="space-y-6"
           >
             <p className="text-lg text-gray-400">
-              The Raptor Quickshifter uses  
-              <span className="font-medium text-white"> a non-contact Laser Sensor</span> to eliminate mechanical delays, ensuring the gear cut signal is delivered instantly. This provides the system with Ultra-Low Latency for every shift, guaranteeing maximum acceleration and flawless input capture from any lever position.
+              The Raptor Quickshifter uses{" "}
+              <span className="font-medium text-white">
+                a non-contact Laser Sensor
+              </span>{" "}
+              to eliminate mechanical delays, ensuring the gear cut signal is
+              delivered instantly. This provides the system with Ultra-Low
+              Latency for every shift, guaranteeing maximum acceleration and
+              flawless input capture from any lever position.
+            </p>
             <p className="text-lg text-gray-400">
-               
-              Our integrated <span className="font-medium text-white">IMU (Inertial Measurement Unit)</span> monitors your motorcycle's real-time dynamics, including lean angle and pitch. This enables Context-Aware Safety, allowing the system to intelligently adjust or prevent the power cut during aggressive cornering to ensure stability and keep the chassis planted.
+              Our integrated{" "}
+              <span className="font-medium text-white">
+                IMU (Inertial Measurement Unit)
+              </span>{" "}
+              monitors your motorcycle's real-time dynamics, including lean
+              angle and pitch. This enables Context-Aware Safety, allowing the
+              system to intelligently adjust or prevent the power cut during
+              aggressive cornering to ensure stability and keep the chassis
+              planted.
+            </p>
           </motion.div>
 
           {/* Stats */}
@@ -73,15 +88,17 @@ export function SpecificationsSection() {
           >
             <div>
               <p className="text-4xl font-medium text-teal-500 mb-2">15 ms</p>
-              <p className="text-base text-gray-400">Ultra-Low Latency Response Time</p>
+              <p className="text-base text-gray-400">
+                Ultra-Low Latency Response Time
+              </p>
             </div>
             <div>
               <p className="text-4xl font-medium text-teal-500 mb-2">6-Axis</p>
-              <p className="text-base text-gray-400">IMU for Dynamic Real-time Control</p>
+              <p className="text-base text-gray-400">
+                IMU for Dynamic Real-time Control
+              </p>
             </div>
           </motion.div>
-
-          
         </div>
       </div>
     </section>
