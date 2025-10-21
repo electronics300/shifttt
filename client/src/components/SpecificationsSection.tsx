@@ -20,10 +20,10 @@ export function SpecificationsSection() {
             className="space-y-4 text-center"
           >
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium text-teal-500">
-              Even longer battery life.
+              The Intelligence of Sensor Fusion.
             </h2>
             <h3 className="text-3xl md:text-4xl lg:text-5xl font-medium text-white">
-              You'll need to recharge before it will.
+              Maximum Acceleration. Absolute Control.
             </h3>
           </motion.div>
         </div>
@@ -56,13 +56,11 @@ export function SpecificationsSection() {
             className="space-y-6"
           >
             <p className="text-lg text-gray-400">
-              QuickShift Pro has been designed to make room for a larger battery, which works together with our advanced processor to deliver 
-              <span className="font-medium text-white"> a big boost in battery life</span>, even with so many new features. So you can ride, race, and explore on — and on.
-            </p>
-
+              The Raptor Quickshifter uses  
+              <span className="font-medium text-white"> a non-contact Laser Sensor</span> to eliminate mechanical delays, ensuring the gear cut signal is delivered instantly. This provides the system with Ultra-Low Latency for every shift, guaranteeing maximum acceleration and flawless input capture from any lever position.
             <p className="text-lg text-gray-400">
-              Snap on a new MagSafe charger for <span className="font-medium text-white">even faster wireless charging</span> — up to 25W with a 30W power adapter or higher, enabling up to 50% charge in around 30 minutes.
-            </p>
+               
+              Our integrated <span className="font-medium text-white">IMU (Inertial Measurement Unit)</span> monitors your motorcycle's real-time dynamics, including lean angle and pitch. This enables Context-Aware Safety, allowing the system to intelligently adjust or prevent the power cut during aggressive cornering to ensure stability and keep the chassis planted.
           </motion.div>
 
           {/* Stats */}
@@ -74,12 +72,12 @@ export function SpecificationsSection() {
             className="grid grid-cols-1 md:grid-cols-2 gap-8"
           >
             <div>
-              <p className="text-4xl font-medium text-teal-500 mb-2">27 hours</p>
-              <p className="text-base text-gray-400">continuous operation on Pro model</p>
+              <p className="text-4xl font-medium text-teal-500 mb-2">15 ms</p>
+              <p className="text-base text-gray-400">Ultra-Low Latency Response Time</p>
             </div>
             <div>
-              <p className="text-4xl font-medium text-teal-500 mb-2">22 hours</p>
-              <p className="text-base text-gray-400">continuous operation on standard model</p>
+              <p className="text-4xl font-medium text-teal-500 mb-2">6-Axis</p>
+              <p className="text-base text-gray-400">IMU for Dynamic Real-time Control</p>
             </div>
           </motion.div>
 
