@@ -1,104 +1,76 @@
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
+import { ChevronDown, Facebook, Instagram, Twitter } from "lucide-react";
 import mainBackground from "../assets/images/mainbg.jpg";
 
 export function HeroSection() {
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      const offset = 80; // Offset for the header
-      const bodyRect = document.body.getBoundingClientRect().top;
-      const elementRect = element.getBoundingClientRect().top;
-      const elementPosition = elementRect - bodyRect;
-      const offsetPosition = elementPosition - offset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
-    }
-  };
-
   return (
-    <section className="relative h-screen flex items-end overflow-hidden">
-      {/* Background image */}
+    <section className="relative h-screen flex flex-col items-center justify-center overflow-hidden bg-black text-white">
+      {/* Blurred Background Image */}
       <div className="absolute inset-0 z-0">
         <img
           src={mainBackground}
-          alt="Performance motorcycle"
-          className="w-full h-full object-cover"
+          alt="Background abstract"
+          className="w-full h-full object-cover brightness-150"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent"></div>
+        <div className="absolute inset-0 bg-black/70" />
       </div>
 
-      <div className="container mx-auto px-4 pb-12 z-10">
-        <div className="max-w-2xl mx-auto text-center">
-          <motion.h1 
-            className="text-4xl md:text-5xl font-bold text-white mb-4"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            Raptor
-          </motion.h1>
+      {/* Coming Soon Content */}
+      <div className="z-10 flex flex-col items-center text-center px-4">
+        <motion.h1
+          className="text-4xl md:text-6xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-br from-white to-gray-400"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+        >
+          Coming soon!
+        </motion.h1>
 
-          <motion.p 
-            className="text-lg text-white/90 mb-6"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-          >
-            The next generation quickshifter for performance motorcycles
-          </motion.p>
+        <motion.div
+          className="mt-8 w-full max-w-md bg-white/5 backdrop-blur-md border border-white/10 p-6 rounded-2xl shadow-lg"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.3 }}
+        >
+          <h2 className="text-xl font-semibold text-white mb-2">
+            Join our waitlist!
+          </h2>
+          <p className="text-sm text-white/80 mb-4">
+            Sign up for updates and early access — straight to your inbox.
+          </p>
+          <div className="flex items-center space-x-2">
+            <input
+              type="email"
+              placeholder="Enter your email"
+              className="flex-1 px-4 py-2 rounded-md bg-white/10 text-white placeholder-white/60 border border-white/20 focus:outline-none"
+            />
+            <button className="px-4 py-2 bg-white text-black rounded-md font-medium hover:bg-gray-200 transition">
+              Join Waitlist
+            </button>
+          </div>
+        </motion.div>
 
-          <motion.div 
-            className="grid grid-cols-3 gap-6 mb-8"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <div>
-              <p className="text-xl font-medium text-white">
-                15 ms
-              </p>
-              <p className="text-xs text-white/70">Response Time</p>
-            </div>
-            <div>
-              <p className="text-xl font-medium text-white">
-                360°
-              </p>
-              <p className="text-xs text-white/70">Detection Angle</p>
-            </div>
-            <div>
-              <p className="text-xl font-medium text-white">AWD</p>
-              <p className="text-xs text-white/70">Compatibility</p>
-            </div>
-          </motion.div>
+        {/* Social Icons */}
+        <div className="flex space-x-4 mt-6 opacity-70">
+          <a href="#"><Twitter className="w-5 h-5" /></a>
+          <a href="#"><Facebook className="w-5 h-5" /></a>
+          <a href="#"><Instagram className="w-5 h-5" /></a>
+        </div>
 
-          <motion.div 
-            className="flex flex-wrap gap-3 justify-center"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-          >
-            <Button
-              size="default"
-              className="bg-black text-white hover:bg-white/10"
-              onClick={() => scrollToSection("waitlist")}
-            >
-              Join Wishlist
-            </Button>
-            <Button
-              variant="outline"
-              size="default"
-              className="border-white text-white bg-transparent hover:bg-white/70"
-              onClick={() => scrollToSection("features")}
-            >
-              Learn More
-            </Button>
-          </motion.div>
+        {/* Footer Text */}
+        <div className="text-xs text-white/40 mt-4">
+          ©2025 YourCompany · Built by You · <a href="#" className="underline">404</a>
         </div>
       </div>
+
+      {/* Animated Down Arrow */}
+      <motion.div
+        className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-10"
+        animate={{ y: [0, 10, 0] }}
+        transition={{ repeat: Infinity, duration: 1.5 }}
+      >
+        <ChevronDown className="text-white w-6 h-6 opacity-60" />
+      </motion.div>
     </section>
   );
 }

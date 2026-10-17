@@ -8,21 +8,31 @@ import { InstallationSection } from "@/components/InstallationSection";
 import { FaqSection } from "@/components/FaqSection";
 import { WaitlistSection } from "@/components/WaitlistSection";
 import { Footer } from "@/components/Footer";
-import { AboutSection } from "@/components/AboutSection"; // Import the AboutSection component
+import { AboutSection } from "@/components/AboutSection";
 
 export default function Home() {
+  const showHero = true;
+  const showProductDisplay = false;
+  const showFeatures = false;
+  const showSpecifications = false;
+  const showInstallation = false; // Hidden
+  const showVideo = false;        // Hidden
+  const showAbout = false;
+  const showFaq = false;
+  const showWaitlist = true;
+
   return (
     <div className="min-h-screen bg-black text-white">
       <Header />
-      <HeroSection />
-      <ProductDisplay />
-      <FeaturesSection />
-      <SpecificationsSection />
-      <InstallationSection />
-      <VideoSection />
-      <AboutSection /> {/* Added AboutSection */}
-      <FaqSection />
-      <WaitlistSection />
+      {showHero && <HeroSection />}
+      {showProductDisplay && <ProductDisplay />}
+      {showFeatures && <FeaturesSection />}
+      {showSpecifications && <SpecificationsSection />}
+      {showInstallation && <InstallationSection />}
+      {showVideo && <VideoSection />}
+      {showAbout && <AboutSection />}
+      {showFaq && <FaqSection />}
+      {showWaitlist && <WaitlistSection />}
       <Footer />
     </div>
   );
