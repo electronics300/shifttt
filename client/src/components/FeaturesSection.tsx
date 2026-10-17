@@ -32,8 +32,8 @@ export function FeaturesSection() {
 
                 <div className="grid grid-cols-3 gap-6 pt-6">
                   <div className="space-y-2">
-                    <p className="text-2xl font-medium text-white">15-inch</p>
-                    <p className="text-sm text-stone-400">Touchscreen Display</p>
+                    <p className="text-2xl font-medium text-white">Plug-Play</p>
+                    <p className="text-sm text-stone-400">Compatibility</p>
                   </div>
                   <div className="space-y-2">
                     <p className="text-2xl font-medium text-white">Custom</p>
